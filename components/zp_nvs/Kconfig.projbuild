@@ -1,0 +1,16 @@
+menu "zpPulser NVS Configuration"
+
+config NVS_OPTIONS_PARTITION
+    string "Partition to use for configuration options"
+    default "nvs"
+    help
+		All NVS options are stored within the specified NVS partion 
+		
+config NVS_OPTIONS_NAMESPACE
+    string "Namespace to use for configuration options"
+    default "config"
+    help
+		All NVS options are stored within the a NVS partion using 
+		the specified namespace to group key value pairs and to avoid nameconflicts  
+
+endmenu

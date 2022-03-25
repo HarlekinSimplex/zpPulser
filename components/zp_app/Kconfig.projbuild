@@ -1,0 +1,34 @@
+menu "zpPulser APP Configuration"
+
+config HISTORY_PERSISTENCE
+    bool "Enable command history persistence"
+    default y
+    help
+        Linenoise line editing library provides functions to save and load
+        command history. 
+        If this option is enabled a FAT filesystem ist initilized and can be used to store the command history.
+        Set the option STORE_HISTORY if saving of the history schould be active after boot or not.   
+		It can be enabled or disable by user on demand.
+
+if HISTORY_PERSISTENCE
+
+	config STORE_HISTORY
+	    bool "Enable command history storage as factory default"
+	    default y
+	    help
+	        Enable saving of of a command history file into filesystem (flash) as default on every boot.
+
+	config HISTORY_MOUNT_PATH
+	    string "Command history file mount path"
+        default "/data"
+        help
+	        Path to VFS folder to store historyfile.
+
+	config HISTORY_FILENAME
+	    string "Command history filename to use"
+        default "/history.txt"
+        help
+	        Filename to store command history into.
+endif
+
+endmenu

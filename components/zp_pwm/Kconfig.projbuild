@@ -1,0 +1,296 @@
+menu "zpPulser PWM Configuration"
+
+config MCPWM0A_GPIO
+    int "MCPWM0A output GPIO number"
+	range 0 39
+	default 19
+	help
+		GPIO number (IOxx) from which to sample the Rotary Encoder 'A' output.
+		Some GPIOs are used for other purposes (flash connections, etc.) and cannot be used.
+
+config MCPWM0B_GPIO
+    int "MCPWM0B output GPIO number"
+	range 0 39
+	default 18
+	help
+		GPIO number (IOxx) from which to sample the Rotary Encoder 'A' output.
+		Some GPIOs are used for other purposes (flash connections, etc.) and cannot be used.
+
+config MCPWM1A_GPIO
+    int "MCPWM1A output GPIO number"
+	range 0 39
+	default 17
+	help
+		GPIO number (IOxx) from which to sample the Rotary Encoder 'A' output.
+		Some GPIOs are used for other purposes (flash connections, etc.) and cannot be used.
+
+config MCPWM1B_GPIO
+    int "MCPWM1B output GPIO number"
+	range 0 39
+	default 16
+	help
+		GPIO number (IOxx) from which to sample the Rotary Encoder 'A' output.
+		Some GPIOs are used for other purposes (flash connections, etc.) and cannot be used.
+
+config MCPWM2A_GPIO
+    int "MCPWM2A output GPIO number"
+	range 0 39
+	default 15
+	help
+		GPIO number (IOxx) from which to sample the Rotary Encoder 'A' output.
+		Some GPIOs are used for other purposes (flash connections, etc.) and cannot be used.
+
+config MCPWM2B_GPIO
+    int "MCPWM2B output GPIO number"
+	range 0 39
+	default 14
+	help
+		GPIO number (IOxx) from which to sample the Rotary Encoder 'A' output.
+		Some GPIOs are used for other purposes (flash connections, etc.) and cannot be used.
+
+config MCPWM_UNIT_0_RESOLUTION
+    int "Resolution of timer group 0"
+	range 468750 120000000
+	default 100000000
+	help
+		Resolution of pwm timer group 0
+		Maximum resolution is clk/2 with clk at 240Mhz  
+		Minimum resolution is clk/512 with clk at 2400Mz
+		Best set to multiples of 2 and used with duty cycles of multiples thise resolution   
+
+config MCPWM0_RESOLUTION
+    int "Resolution of timer 0 in group 0"
+	range 468750 120000000
+	default 100000000
+	help
+		Resolution of pwm timer 0 at timer group 0
+		Maximum resolution is clk/2 with clk at 240Mhz  
+		Minimum resolution is clk/512 with clk at 2400Mz
+		Best set to multiples of 2 and used with duty cycles of multiples thise resolution
+		Timer resolution should align with its group resolution     
+
+config MCPWM1_RESOLUTION
+    int "Resolution of timer 1 in group 0"
+	range 468750 120000000
+	default 120000000
+	help
+		Resolution of pwm timer 0 at timer group 0
+		Maximum resolution is clk/2 with clk at 240Mhz  
+		Minimum resolution is clk/512 with clk at 2400Mz
+		Best set to multiples of 2 and used with duty cycles of multiples thise resolution
+		Timer resolution should align with its group resolution     
+
+config MCPWM2_RESOLUTION
+    int "Resolution of timer 2 in group 0"
+	range 468750 120000000
+	default 120000000
+	help
+		Resolution of pwm timer 0 at timer group 0
+		Maximum resolution is clk/2 with clk at 240Mhz  
+		Minimum resolution is clk/512 with clk at 2400Mz
+		Best set to multiples of 2 and used with duty cycles of multiples thise resolution
+		Timer resolution should align with its group resolution     
+
+
+config MCPWM0_FRQ
+    int "Frequency of MCPWM0"
+	range 8 120000000
+	default 2500
+	help
+		Frequency of MCPWM0
+		Maximum frequency at maximum resolution is clk/2 with clk at 240Mhz  
+		Minimum frequency at minimum resolution is clk/512(8bit prescaler)/65536(16bit timer) with clk at 2400Mz
+
+config MCPWM0_DUTY_A
+    string "Duty cycle of MCPWM0 comperator A"
+    default "12.5"
+	help
+		Duty cycle of MCPWM0 comperator A
+		Use string representation of float
+
+config MCPWM0_DUTY_B
+    string "Duty cycle of MCPWM0 comperator B"
+    default "12.5"
+	help
+		Duty cycle of MCPWM0 comperator B
+		Use string representation of float
+
+config MCPWM0_SYNC_VAL
+    string "Sync duty of MCPWM0"
+	default "0"
+	help
+		Use string representation of float
+
+config MCPWM0_SYNC_SIG
+    int "Synchronisation signal for MCPWM0"
+	range 0 6
+	default 0
+	help
+		0 = MCPWM_SELECT_NO_INPUT
+		1 = MCPWM_SELECT_TIMER0_SYNC
+		2 = MCPWM_SELECT_TIMER1_SYNC
+		3 = MCPWM_SELECT_TIMER2_SYNC
+		4 = MCPWM_SELECT_GPIO_SYNC0
+		5 = MCPWM_SELECT_GPIO_SYNC1
+		6 = MCPWM_SELECT_GPIO_SYNC2
+
+config MCPWM0_SYNC_OUT
+    int "Synchronization output for MCPWM0"
+	range 0 3
+	default 3
+	help
+		0 = MCPWM_SWSYNC_SOURCE_SYNCIN (the input sync signal will be routed to its sync output path)
+		1 = MCPWM_SWSYNC_SOURCE_TEZ    (sync signal generated when timer counts to zero)
+		2 = MCPWM_SWSYNC_SOURCE_TEP    (sync signal generated when timer counts to peak)
+		3 = MCPWM_SWSYNC_SOURCE_DISABLED
+
+config MCPWM0_DIR
+    int "Timer count direction afer sync signal for MCPWM0"
+	range 0 1
+	default 0
+	help
+		0 = MCPWM_UP_COUNTER
+		1 = MCPWM_DOWN_COUNTER
+
+config MCPWM0_AUTOSTART
+    bool "Autostart MCPWM0 at boot"
+	default n
+	help
+		If set to 1 MCPWM0 will be initialized and started during boot
+
+
+config MCPWM1_FRQ
+    int "Frequency of MCPWM1"
+	range 8 120000000
+	default 5000
+	help
+		Frequency of MCPWM1
+		Maximum frequency at maximum resolution is clk/2 with clk at 240Mhz  
+		Minimum frequency at minimum resolution is clk/512(8bit prescaler)/65536(16bit timer) with clk at 2400Mz
+
+config MCPWM1_DUTY_A
+    string "Duty cycle of MCPWM1 comperator A"
+    default "25.0"
+	help
+		Duty cycle of MCPWM1 comperator A
+		Use string representation of float
+
+config MCPWM1_DUTY_B
+    string "Duty cycle of MCPWM1 comperator B"
+    default "25.0"
+	help
+		Duty cycle of MCPWM1 comperator B
+		Use string representation of float
+
+config MCPWM1_SYNC_VAL
+    string "Sync duty of MCPWM1"
+	default "25.0"
+	help
+		Use string representation of float
+
+config MCPWM1_SYNC_SIG
+    int "Synchronisation signal for MCPWM1"
+	range 0 6
+	default 0
+	help
+		0 = MCPWM_SELECT_NO_INPUT
+		1 = MCPWM_SELECT_TIMER0_SYNC
+		2 = MCPWM_SELECT_TIMER1_SYNC
+		3 = MCPWM_SELECT_TIMER2_SYNC
+		4 = MCPWM_SELECT_GPIO_SYNC0
+		5 = MCPWM_SELECT_GPIO_SYNC1
+		6 = MCPWM_SELECT_GPIO_SYNC2
+
+config MCPWM1_SYNC_OUT
+    int "Synchronization output for MCPWM1"
+	range 0 3
+	default 3
+	help
+		0 = MCPWM_SWSYNC_SOURCE_SYNCIN (the input sync signal will be routed to its sync output path)
+		1 = MCPWM_SWSYNC_SOURCE_TEZ    (sync signal generated when timer counts to zero)
+		2 = MCPWM_SWSYNC_SOURCE_TEP    (sync signal generated when timer counts to peak)
+		3 = MCPWM_SWSYNC_SOURCE_DISABLED
+
+config MCPWM1_DIR
+    int "Timer count direction afer sync signal for MCPWM1"
+	range 0 1
+	default 1
+	help
+		0 = MCPWM_UP_COUNTER
+		1 = MCPWM_DOWN_COUNTER
+
+config MCPWM1_AUTOSTART
+    bool "Autostart MCPWM1 at boot"
+	default n
+	help
+		If set to 1 MCPWM1 will be initialized and started during boot
+
+
+config MCPWM2_FRQ
+    int "Frequency of MCPWM2"
+	range 8 120000000
+	default 7500
+	help
+		Frequency of MCPWM2
+		Maximum frequency at maximum resolution is clk/2 with clk at 240Mhz  
+		Minimum frequency at minimum resolution is clk/512(8bit prescaler)/65536(16bit timer) with clk at 2400Mz
+
+config MCPWM2_DUTY_A
+    string "Duty cycle of MCPWM2 comperator A"
+    default "37.5"
+	help
+		Duty cycle of MCPWM2 comperator A
+		Use string representation of float
+
+config MCPWM2_DUTY_B
+    string "Duty cycle of MCPWM2 comperator B"
+    default "37.5"
+	help
+		Duty cycle of MCPWM2 comperator B
+		Use string representation of float
+
+config MCPWM2_SYNC_VAL
+    string "Sync duty of MCPWM2"
+	default "37.5"
+	help
+		Use string representation of float
+
+config MCPWM2_SYNC_SIG
+    int "Synchronisation signal for MCPWM2"
+	range 0 6
+	default 0
+	help
+		0 = MCPWM_SELECT_NO_INPUT
+		1 = MCPWM_SELECT_TIMER0_SYNC
+		2 = MCPWM_SELECT_TIMER1_SYNC
+		3 = MCPWM_SELECT_TIMER2_SYNC
+		4 = MCPWM_SELECT_GPIO_SYNC0
+		5 = MCPWM_SELECT_GPIO_SYNC1
+		6 = MCPWM_SELECT_GPIO_SYNC2
+
+config MCPWM2_SYNC_OUT
+    int "Synchronization output for MCPWM2"
+	range 0 3
+	default 3
+	help
+		0 = MCPWM_SWSYNC_SOURCE_SYNCIN (the input sync signal will be routed to its sync output path)
+		1 = MCPWM_SWSYNC_SOURCE_TEZ    (sync signal generated when timer counts to zero)
+		2 = MCPWM_SWSYNC_SOURCE_TEP    (sync signal generated when timer counts to peak)
+		3 = MCPWM_SWSYNC_SOURCE_DISABLED
+
+config MCPWM2_DIR
+    int "Timer count direction afer sync signal for MCPWM2"
+	range 0 1
+	default 1
+	help
+		0 = MCPWM_UP_COUNTER
+		1 = MCPWM_DOWN_COUNTER
+
+config MCPWM2_AUTOSTART
+    bool "Autostart MCPWM2 at boot"
+	default n
+	help
+		If set to 1 MCPWM2 will be initialized and started during boot
+
+
+endmenu

@@ -178,7 +178,7 @@ build project_elf_src_esp32.c: CUSTOM_COMMAND
 # Custom command for CMakeFiles\confserver
 
 build CMakeFiles/confserver: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D D:\eclipse-workspace\zpPulser\build\bootloader && D:\.espressif\python_env\idf4.4_py3.8_env\Scripts\python.exe D:/esp-idf/tools/kconfig_new/prepare_kconfig_files.py --env-file D:/eclipse-workspace/zpPulser/build/bootloader/config.env && D:\.espressif\python_env\idf4.4_py3.8_env\Scripts\python.exe D:/esp-idf/tools/kconfig_new/confserver.py --env-file D:/eclipse-workspace/zpPulser/build/bootloader/config.env --kconfig D:/esp-idf/Kconfig --sdkconfig-rename D:/esp-idf/sdkconfig.rename --config D:/eclipse-workspace/zpPulser/sdkconfig"
+  COMMAND = cmd.exe /C "cd /D D:\eclipse-workspace\zpPulser\build\bootloader && python D:/esp-idf/tools/kconfig_new/prepare_kconfig_files.py --env-file D:/eclipse-workspace/zpPulser/build/bootloader/config.env && python D:/esp-idf/tools/kconfig_new/confserver.py --env-file D:/eclipse-workspace/zpPulser/build/bootloader/config.env --kconfig D:/esp-idf/Kconfig --sdkconfig-rename D:/esp-idf/sdkconfig.rename --config D:/eclipse-workspace/zpPulser/sdkconfig"
   pool = console
 
 
@@ -186,7 +186,7 @@ build CMakeFiles/confserver: CUSTOM_COMMAND
 # Custom command for CMakeFiles\erase_flash
 
 build CMakeFiles/erase_flash: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D D:\esp-idf\components\esptool_py && D:\.espressif\tools\cmake\3.20.3\bin\cmake.exe -D IDF_PATH="D:/esp-idf" -D SERIAL_TOOL="D:/.espressif/python_env/idf4.4_py3.8_env/Scripts/python.exe D:/esp-idf/components/esptool_py/esptool/esptool.py --chip esp32" -D SERIAL_TOOL_ARGS="erase_flash" -P run_serial_tool.cmake"
+  COMMAND = cmd.exe /C "cd /D D:\esp-idf\components\esptool_py && D:\.espressif\tools\cmake\3.20.3\bin\cmake.exe -D IDF_PATH="D:/esp-idf" -D SERIAL_TOOL="python D:/esp-idf/components/esptool_py/esptool/esptool.py --chip esp32" -D SERIAL_TOOL_ARGS="erase_flash" -P run_serial_tool.cmake"
   pool = console
 
 
@@ -200,7 +200,7 @@ build CMakeFiles/app: phony || _project_elf_src bootloader.elf esp-idf/bootloade
 # Custom command for CMakeFiles\menuconfig
 
 build CMakeFiles/menuconfig: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D D:\eclipse-workspace\zpPulser\build\bootloader && D:\.espressif\python_env\idf4.4_py3.8_env\Scripts\python.exe D:/esp-idf/tools/kconfig_new/prepare_kconfig_files.py --env-file D:/eclipse-workspace/zpPulser/build/bootloader/config.env && D:\.espressif\python_env\idf4.4_py3.8_env\Scripts\python.exe D:/esp-idf/tools/kconfig_new/confgen.py --kconfig D:/esp-idf/Kconfig --sdkconfig-rename D:/esp-idf/sdkconfig.rename --config D:/eclipse-workspace/zpPulser/sdkconfig --env-file D:/eclipse-workspace/zpPulser/build/bootloader/config.env --env IDF_TARGET=esp32 --env IDF_ENV_FPGA= --dont-write-deprecated --output config D:/eclipse-workspace/zpPulser/sdkconfig && D:\.espressif\python_env\idf4.4_py3.8_env\Scripts\python.exe D:/esp-idf/tools/check_term.py && D:\.espressif\tools\cmake\3.20.3\bin\cmake.exe -E env COMPONENT_KCONFIGS_SOURCE_FILE=D:/eclipse-workspace/zpPulser/build/bootloader/kconfigs.in COMPONENT_KCONFIGS_PROJBUILD_SOURCE_FILE=D:/eclipse-workspace/zpPulser/build/bootloader/kconfigs_projbuild.in IDF_CMAKE=y KCONFIG_CONFIG=D:/eclipse-workspace/zpPulser/sdkconfig IDF_TARGET=esp32 IDF_ENV_FPGA= D:/.espressif/python_env/idf4.4_py3.8_env/Scripts/python.exe -m menuconfig D:/esp-idf/Kconfig && D:\.espressif\python_env\idf4.4_py3.8_env\Scripts\python.exe D:/esp-idf/tools/kconfig_new/confgen.py --kconfig D:/esp-idf/Kconfig --sdkconfig-rename D:/esp-idf/sdkconfig.rename --config D:/eclipse-workspace/zpPulser/sdkconfig --env-file D:/eclipse-workspace/zpPulser/build/bootloader/config.env --env IDF_TARGET=esp32 --env IDF_ENV_FPGA= --output config D:/eclipse-workspace/zpPulser/sdkconfig"
+  COMMAND = cmd.exe /C "cd /D D:\eclipse-workspace\zpPulser\build\bootloader && python D:/esp-idf/tools/kconfig_new/prepare_kconfig_files.py --env-file D:/eclipse-workspace/zpPulser/build/bootloader/config.env && python D:/esp-idf/tools/kconfig_new/confgen.py --kconfig D:/esp-idf/Kconfig --sdkconfig-rename D:/esp-idf/sdkconfig.rename --config D:/eclipse-workspace/zpPulser/sdkconfig --env-file D:/eclipse-workspace/zpPulser/build/bootloader/config.env --env IDF_TARGET=esp32 --env IDF_ENV_FPGA= --dont-write-deprecated --output config D:/eclipse-workspace/zpPulser/sdkconfig && python D:/esp-idf/tools/check_term.py && D:\.espressif\tools\cmake\3.20.3\bin\cmake.exe -E env COMPONENT_KCONFIGS_SOURCE_FILE=D:/eclipse-workspace/zpPulser/build/bootloader/kconfigs.in COMPONENT_KCONFIGS_PROJBUILD_SOURCE_FILE=D:/eclipse-workspace/zpPulser/build/bootloader/kconfigs_projbuild.in IDF_CMAKE=y KCONFIG_CONFIG=D:/eclipse-workspace/zpPulser/sdkconfig IDF_TARGET=esp32 IDF_ENV_FPGA= python -m menuconfig D:/esp-idf/Kconfig && python D:/esp-idf/tools/kconfig_new/confgen.py --kconfig D:/esp-idf/Kconfig --sdkconfig-rename D:/esp-idf/sdkconfig.rename --config D:/eclipse-workspace/zpPulser/sdkconfig --env-file D:/eclipse-workspace/zpPulser/build/bootloader/config.env --env IDF_TARGET=esp32 --env IDF_ENV_FPGA= --output config D:/eclipse-workspace/zpPulser/sdkconfig"
   pool = console
 
 
@@ -214,7 +214,7 @@ build CMakeFiles/gen_project_binary: phony .bin_timestamp || _project_elf_src bo
 # Custom command for .bin_timestamp
 
 build .bin_timestamp: CUSTOM_COMMAND bootloader.elf || _project_elf_src bootloader.elf esp-idf/bootloader_support/libbootloader_support.a esp-idf/efuse/libefuse.a esp-idf/esp_common/libesp_common.a esp-idf/esp_hw_support/libesp_hw_support.a esp-idf/esp_rom/libesp_rom.a esp-idf/esp_system/libesp_system.a esp-idf/hal/libhal.a esp-idf/log/liblog.a esp-idf/main/libmain.a esp-idf/micro-ecc/libmicro-ecc.a esp-idf/soc/libsoc.a esp-idf/spi_flash/libspi_flash.a esp-idf/xtensa/libxtensa.a
-  COMMAND = cmd.exe /C "cd /D D:\eclipse-workspace\zpPulser\build\bootloader && D:\.espressif\python_env\idf4.4_py3.8_env\Scripts\python.exe D:/esp-idf/components/esptool_py/esptool/esptool.py --chip esp32 elf2image --flash_mode dio --flash_freq 40m --flash_size 4MB -o D:/eclipse-workspace/zpPulser/build/bootloader/bootloader.bin D:/eclipse-workspace/zpPulser/build/bootloader/bootloader.elf && D:\.espressif\tools\cmake\3.20.3\bin\cmake.exe -E echo "Generated D:/eclipse-workspace/zpPulser/build/bootloader/bootloader.bin" && D:\.espressif\tools\cmake\3.20.3\bin\cmake.exe -E md5sum D:/eclipse-workspace/zpPulser/build/bootloader/bootloader.bin > D:/eclipse-workspace/zpPulser/build/bootloader/.bin_timestamp"
+  COMMAND = cmd.exe /C "cd /D D:\eclipse-workspace\zpPulser\build\bootloader && python D:/esp-idf/components/esptool_py/esptool/esptool.py --chip esp32 elf2image --flash_mode dio --flash_freq 40m --flash_size 4MB -o D:/eclipse-workspace/zpPulser/build/bootloader/bootloader.bin D:/eclipse-workspace/zpPulser/build/bootloader/bootloader.elf && D:\.espressif\tools\cmake\3.20.3\bin\cmake.exe -E echo "Generated D:/eclipse-workspace/zpPulser/build/bootloader/bootloader.bin" && D:\.espressif\tools\cmake\3.20.3\bin\cmake.exe -E md5sum D:/eclipse-workspace/zpPulser/build/bootloader/bootloader.bin > D:/eclipse-workspace/zpPulser/build/bootloader/.bin_timestamp"
   DESC = Generating binary image from built executable
   restat = 1
 
@@ -223,7 +223,7 @@ build .bin_timestamp: CUSTOM_COMMAND bootloader.elf || _project_elf_src bootload
 # Custom command for CMakeFiles\monitor
 
 build CMakeFiles/monitor: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D D:\esp-idf\components\esptool_py && D:\.espressif\tools\cmake\3.20.3\bin\cmake.exe -D IDF_PATH="D:/esp-idf" -D SERIAL_TOOL="D:/.espressif/python_env/idf4.4_py3.8_env/Scripts/python.exe D:/esp-idf/tools/idf_monitor.py" -D SERIAL_TOOL_ARGS="--target esp32 D:/eclipse-workspace/zpPulser/build/bootloader/bootloader.elf" -D WORKING_DIRECTORY="D:/eclipse-workspace/zpPulser/build/bootloader" -P run_serial_tool.cmake"
+  COMMAND = cmd.exe /C "cd /D D:\esp-idf\components\esptool_py && D:\.espressif\tools\cmake\3.20.3\bin\cmake.exe -D IDF_PATH="D:/esp-idf" -D SERIAL_TOOL="python D:/esp-idf/tools/idf_monitor.py" -D SERIAL_TOOL_ARGS="--target esp32 D:/eclipse-workspace/zpPulser/build/bootloader/bootloader.elf" -D WORKING_DIRECTORY="D:/eclipse-workspace/zpPulser/build/bootloader" -P run_serial_tool.cmake"
   pool = console
 
 
@@ -231,28 +231,28 @@ build CMakeFiles/monitor: CUSTOM_COMMAND
 # Custom command for CMakeFiles\size
 
 build CMakeFiles/size: CUSTOM_COMMAND bootloader.elf || _project_elf_src bootloader.elf esp-idf/bootloader_support/libbootloader_support.a esp-idf/efuse/libefuse.a esp-idf/esp_common/libesp_common.a esp-idf/esp_hw_support/libesp_hw_support.a esp-idf/esp_rom/libesp_rom.a esp-idf/esp_system/libesp_system.a esp-idf/hal/libhal.a esp-idf/log/liblog.a esp-idf/main/libmain.a esp-idf/micro-ecc/libmicro-ecc.a esp-idf/soc/libsoc.a esp-idf/spi_flash/libspi_flash.a esp-idf/xtensa/libxtensa.a
-  COMMAND = cmd.exe /C "cd /D D:\eclipse-workspace\zpPulser\build\bootloader && D:\.espressif\python_env\idf4.4_py3.8_env\Scripts\python.exe D:/esp-idf/tools/idf_size.py D:/eclipse-workspace/zpPulser/build/bootloader/bootloader.map"
+  COMMAND = cmd.exe /C "cd /D D:\eclipse-workspace\zpPulser\build\bootloader && python D:/esp-idf/tools/idf_size.py D:/eclipse-workspace/zpPulser/build/bootloader/bootloader.map"
 
 
 #############################################
 # Custom command for CMakeFiles\size-files
 
 build CMakeFiles/size-files: CUSTOM_COMMAND bootloader.elf || _project_elf_src bootloader.elf esp-idf/bootloader_support/libbootloader_support.a esp-idf/efuse/libefuse.a esp-idf/esp_common/libesp_common.a esp-idf/esp_hw_support/libesp_hw_support.a esp-idf/esp_rom/libesp_rom.a esp-idf/esp_system/libesp_system.a esp-idf/hal/libhal.a esp-idf/log/liblog.a esp-idf/main/libmain.a esp-idf/micro-ecc/libmicro-ecc.a esp-idf/soc/libsoc.a esp-idf/spi_flash/libspi_flash.a esp-idf/xtensa/libxtensa.a
-  COMMAND = cmd.exe /C "cd /D D:\eclipse-workspace\zpPulser\build\bootloader && D:\.espressif\python_env\idf4.4_py3.8_env\Scripts\python.exe D:/esp-idf/tools/idf_size.py --files D:/eclipse-workspace/zpPulser/build/bootloader/bootloader.map"
+  COMMAND = cmd.exe /C "cd /D D:\eclipse-workspace\zpPulser\build\bootloader && python D:/esp-idf/tools/idf_size.py --files D:/eclipse-workspace/zpPulser/build/bootloader/bootloader.map"
 
 
 #############################################
 # Custom command for CMakeFiles\size-components
 
 build CMakeFiles/size-components: CUSTOM_COMMAND bootloader.elf || _project_elf_src bootloader.elf esp-idf/bootloader_support/libbootloader_support.a esp-idf/efuse/libefuse.a esp-idf/esp_common/libesp_common.a esp-idf/esp_hw_support/libesp_hw_support.a esp-idf/esp_rom/libesp_rom.a esp-idf/esp_system/libesp_system.a esp-idf/hal/libhal.a esp-idf/log/liblog.a esp-idf/main/libmain.a esp-idf/micro-ecc/libmicro-ecc.a esp-idf/soc/libsoc.a esp-idf/spi_flash/libspi_flash.a esp-idf/xtensa/libxtensa.a
-  COMMAND = cmd.exe /C "cd /D D:\eclipse-workspace\zpPulser\build\bootloader && D:\.espressif\python_env\idf4.4_py3.8_env\Scripts\python.exe D:/esp-idf/tools/idf_size.py --archives D:/eclipse-workspace/zpPulser/build/bootloader/bootloader.map"
+  COMMAND = cmd.exe /C "cd /D D:\eclipse-workspace\zpPulser\build\bootloader && python D:/esp-idf/tools/idf_size.py --archives D:/eclipse-workspace/zpPulser/build/bootloader/bootloader.map"
 
 
 #############################################
 # Custom command for CMakeFiles\uf2-app
 
 build CMakeFiles/uf2-app: CUSTOM_COMMAND || _project_elf_src bootloader.elf esp-idf/bootloader_support/libbootloader_support.a esp-idf/efuse/libefuse.a esp-idf/esp_common/libesp_common.a esp-idf/esp_hw_support/libesp_hw_support.a esp-idf/esp_rom/libesp_rom.a esp-idf/esp_system/libesp_system.a esp-idf/hal/libhal.a esp-idf/log/liblog.a esp-idf/main/libmain.a esp-idf/micro-ecc/libmicro-ecc.a esp-idf/soc/libsoc.a esp-idf/spi_flash/libspi_flash.a esp-idf/xtensa/libxtensa.a gen_project_binary
-  COMMAND = cmd.exe /C "cd /D D:\eclipse-workspace\zpPulser\build\bootloader && D:\.espressif\python_env\idf4.4_py3.8_env\Scripts\python.exe D:/esp-idf/tools/mkuf2.py write -o D:/eclipse-workspace/zpPulser/build/bootloader/uf2-app.bin --json D:/eclipse-workspace/zpPulser/build/bootloader/flasher_args.json --chip-id 0x1c5f21b0 --bin app"
+  COMMAND = cmd.exe /C "cd /D D:\eclipse-workspace\zpPulser\build\bootloader && python D:/esp-idf/tools/mkuf2.py write -o D:/eclipse-workspace/zpPulser/build/bootloader/uf2-app.bin --json D:/eclipse-workspace/zpPulser/build/bootloader/flasher_args.json --chip-id 0x1c5f21b0 --bin app"
   pool = console
 
 
@@ -260,7 +260,7 @@ build CMakeFiles/uf2-app: CUSTOM_COMMAND || _project_elf_src bootloader.elf esp-
 # Custom command for CMakeFiles\uf2
 
 build CMakeFiles/uf2: CUSTOM_COMMAND bootloader || _project_elf_src bootloader.elf esp-idf/bootloader_support/libbootloader_support.a esp-idf/efuse/libefuse.a esp-idf/esp_common/libesp_common.a esp-idf/esp_hw_support/libesp_hw_support.a esp-idf/esp_rom/libesp_rom.a esp-idf/esp_system/libesp_system.a esp-idf/hal/libhal.a esp-idf/log/liblog.a esp-idf/main/libmain.a esp-idf/micro-ecc/libmicro-ecc.a esp-idf/soc/libsoc.a esp-idf/spi_flash/libspi_flash.a esp-idf/xtensa/libxtensa.a gen_project_binary
-  COMMAND = cmd.exe /C "cd /D D:\eclipse-workspace\zpPulser\build\bootloader && D:\.espressif\python_env\idf4.4_py3.8_env\Scripts\python.exe D:/esp-idf/tools/mkuf2.py write -o D:/eclipse-workspace/zpPulser/build/bootloader/uf2.bin --json D:/eclipse-workspace/zpPulser/build/bootloader/flasher_args.json --chip-id 0x1c5f21b0"
+  COMMAND = cmd.exe /C "cd /D D:\eclipse-workspace\zpPulser\build\bootloader && python D:/esp-idf/tools/mkuf2.py write -o D:/eclipse-workspace/zpPulser/build/bootloader/uf2.bin --json D:/eclipse-workspace/zpPulser/build/bootloader/flasher_args.json --chip-id 0x1c5f21b0"
   pool = console
 
 # =============================================================================
@@ -1095,21 +1095,21 @@ build esp-idf/efuse/edit_cache: phony esp-idf/efuse/CMakeFiles/edit_cache.util
 # Custom command for esp-idf\efuse\CMakeFiles\efuse_test_table
 
 build esp-idf/efuse/CMakeFiles/efuse_test_table: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D D:\eclipse-workspace\zpPulser\build\bootloader\esp-idf\efuse && D:\.espressif\python_env\idf4.4_py3.8_env\Scripts\python.exe D:/esp-idf/components/efuse/efuse_table_gen.py D:/esp-idf/components/efuse/test/esp_efuse_test_table.csv -t esp32 --max_blk_len 256"
+  COMMAND = cmd.exe /C "cd /D D:\eclipse-workspace\zpPulser\build\bootloader\esp-idf\efuse && python D:/esp-idf/components/efuse/efuse_table_gen.py D:/esp-idf/components/efuse/test/esp_efuse_test_table.csv -t esp32 --max_blk_len 256"
 
 
 #############################################
 # Custom command for esp-idf\efuse\CMakeFiles\efuse_common_table
 
 build esp-idf/efuse/CMakeFiles/efuse_common_table: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D D:\eclipse-workspace\zpPulser\build\bootloader\esp-idf\efuse && D:\.espressif\python_env\idf4.4_py3.8_env\Scripts\python.exe D:/esp-idf/components/efuse/efuse_table_gen.py D:/esp-idf/components/efuse/esp32/esp_efuse_table.csv -t esp32 --max_blk_len 256"
+  COMMAND = cmd.exe /C "cd /D D:\eclipse-workspace\zpPulser\build\bootloader\esp-idf\efuse && python D:/esp-idf/components/efuse/efuse_table_gen.py D:/esp-idf/components/efuse/esp32/esp_efuse_table.csv -t esp32 --max_blk_len 256"
 
 
 #############################################
 # Custom command for esp-idf\efuse\CMakeFiles\show_efuse_table
 
 build esp-idf/efuse/CMakeFiles/show_efuse_table: CUSTOM_COMMAND
-  COMMAND = cmd.exe /C "cd /D D:\eclipse-workspace\zpPulser\build\bootloader\esp-idf\efuse && D:\.espressif\python_env\idf4.4_py3.8_env\Scripts\python.exe D:/esp-idf/components/efuse/efuse_table_gen.py D:/esp-idf/components/efuse/esp32/esp_efuse_table.csv -t esp32 --max_blk_len 256 --info"
+  COMMAND = cmd.exe /C "cd /D D:\eclipse-workspace\zpPulser\build\bootloader\esp-idf\efuse && python D:/esp-idf/components/efuse/efuse_table_gen.py D:/esp-idf/components/efuse/esp32/esp_efuse_table.csv -t esp32 --max_blk_len 256 --info"
 
 # =============================================================================
 # Write statements declared in CMakeLists.txt:
@@ -1687,7 +1687,7 @@ build esp-idf/esptool_py/rebuild_cache: phony esp-idf/esptool_py/CMakeFiles/rebu
 # Custom command for esp-idf\esptool_py\CMakeFiles\bootloader_check_size
 
 build esp-idf/esptool_py/CMakeFiles/bootloader_check_size: CUSTOM_COMMAND || _project_elf_src bootloader.elf esp-idf/bootloader_support/libbootloader_support.a esp-idf/efuse/libefuse.a esp-idf/esp_common/libesp_common.a esp-idf/esp_hw_support/libesp_hw_support.a esp-idf/esp_rom/libesp_rom.a esp-idf/esp_system/libesp_system.a esp-idf/hal/libhal.a esp-idf/log/liblog.a esp-idf/main/libmain.a esp-idf/micro-ecc/libmicro-ecc.a esp-idf/soc/libsoc.a esp-idf/spi_flash/libspi_flash.a esp-idf/xtensa/libxtensa.a gen_project_binary
-  COMMAND = cmd.exe /C "cd /D D:\eclipse-workspace\zpPulser\build\bootloader\esp-idf\esptool_py && D:\.espressif\python_env\idf4.4_py3.8_env\Scripts\python.exe D:/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 D:/eclipse-workspace/zpPulser/build/bootloader/bootloader.bin"
+  COMMAND = cmd.exe /C "cd /D D:\eclipse-workspace\zpPulser\build\bootloader\esp-idf\esptool_py && python D:/esp-idf/components/partition_table/check_sizes.py --offset 0x8000 bootloader 0x1000 D:/eclipse-workspace/zpPulser/build/bootloader/bootloader.bin"
 
 # =============================================================================
 # Write statements declared in CMakeLists.txt:

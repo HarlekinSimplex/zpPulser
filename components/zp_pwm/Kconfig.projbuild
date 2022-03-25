@@ -5,7 +5,7 @@ config MCPWM0A_GPIO
 	range 0 39
 	default 19
 	help
-		GPIO number (IOxx) from which to sample the Rotary Encoder 'A' output.
+		GPIO number (IOxx) for timer 0 'A' output.
 		Some GPIOs are used for other purposes (flash connections, etc.) and cannot be used.
 
 config MCPWM0B_GPIO
@@ -13,7 +13,7 @@ config MCPWM0B_GPIO
 	range 0 39
 	default 18
 	help
-		GPIO number (IOxx) from which to sample the Rotary Encoder 'A' output.
+		GPIO number (IOxx) for timer 0 'B' output.
 		Some GPIOs are used for other purposes (flash connections, etc.) and cannot be used.
 
 config MCPWM1A_GPIO
@@ -21,7 +21,7 @@ config MCPWM1A_GPIO
 	range 0 39
 	default 17
 	help
-		GPIO number (IOxx) from which to sample the Rotary Encoder 'A' output.
+		GPIO number (IOxx) for timer 1 'A' output.
 		Some GPIOs are used for other purposes (flash connections, etc.) and cannot be used.
 
 config MCPWM1B_GPIO
@@ -29,7 +29,7 @@ config MCPWM1B_GPIO
 	range 0 39
 	default 16
 	help
-		GPIO number (IOxx) from which to sample the Rotary Encoder 'A' output.
+		GPIO number (IOxx) for timer 1 'B' output.
 		Some GPIOs are used for other purposes (flash connections, etc.) and cannot be used.
 
 config MCPWM2A_GPIO
@@ -37,7 +37,7 @@ config MCPWM2A_GPIO
 	range 0 39
 	default 15
 	help
-		GPIO number (IOxx) from which to sample the Rotary Encoder 'A' output.
+		GPIO number (IOxx) for timer 2 'A' output.
 		Some GPIOs are used for other purposes (flash connections, etc.) and cannot be used.
 
 config MCPWM2B_GPIO
@@ -45,7 +45,7 @@ config MCPWM2B_GPIO
 	range 0 39
 	default 14
 	help
-		GPIO number (IOxx) from which to sample the Rotary Encoder 'A' output.
+		GPIO number (IOxx) for timer 2 'B' output.
 		Some GPIOs are used for other purposes (flash connections, etc.) and cannot be used.
 
 config MCPWM_UNIT_0_RESOLUTION

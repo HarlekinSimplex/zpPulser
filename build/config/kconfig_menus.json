@@ -2479,7 +2479,7 @@
             {
                 "children": [],
                 "depends_on": null,
-                "help": "GPIO number (IOxx) from which to sample the Rotary Encoder 'A' output.\nSome GPIOs are used for other purposes (flash connections, etc.) and cannot be used.",
+                "help": "GPIO number (IOxx) for timer 0 'A' output.\nSome GPIOs are used for other purposes (flash connections, etc.) and cannot be used.",
                 "id": "MCPWM0A_GPIO",
                 "name": "MCPWM0A_GPIO",
                 "range": [
@@ -2492,7 +2492,7 @@
             {
                 "children": [],
                 "depends_on": null,
-                "help": "GPIO number (IOxx) from which to sample the Rotary Encoder 'A' output.\nSome GPIOs are used for other purposes (flash connections, etc.) and cannot be used.",
+                "help": "GPIO number (IOxx) for timer 0 'B' output.\nSome GPIOs are used for other purposes (flash connections, etc.) and cannot be used.",
                 "id": "MCPWM0B_GPIO",
                 "name": "MCPWM0B_GPIO",
                 "range": [
@@ -2505,7 +2505,7 @@
             {
                 "children": [],
                 "depends_on": null,
-                "help": "GPIO number (IOxx) from which to sample the Rotary Encoder 'A' output.\nSome GPIOs are used for other purposes (flash connections, etc.) and cannot be used.",
+                "help": "GPIO number (IOxx) for timer 1 'A' output.\nSome GPIOs are used for other purposes (flash connections, etc.) and cannot be used.",
                 "id": "MCPWM1A_GPIO",
                 "name": "MCPWM1A_GPIO",
                 "range": [
@@ -2518,7 +2518,7 @@
             {
                 "children": [],
                 "depends_on": null,
-                "help": "GPIO number (IOxx) from which to sample the Rotary Encoder 'A' output.\nSome GPIOs are used for other purposes (flash connections, etc.) and cannot be used.",
+                "help": "GPIO number (IOxx) for timer 1 'B' output.\nSome GPIOs are used for other purposes (flash connections, etc.) and cannot be used.",
                 "id": "MCPWM1B_GPIO",
                 "name": "MCPWM1B_GPIO",
                 "range": [
@@ -2531,7 +2531,7 @@
             {
                 "children": [],
                 "depends_on": null,
-                "help": "GPIO number (IOxx) from which to sample the Rotary Encoder 'A' output.\nSome GPIOs are used for other purposes (flash connections, etc.) and cannot be used.",
+                "help": "GPIO number (IOxx) for timer 2 'A' output.\nSome GPIOs are used for other purposes (flash connections, etc.) and cannot be used.",
                 "id": "MCPWM2A_GPIO",
                 "name": "MCPWM2A_GPIO",
                 "range": [
@@ -2544,7 +2544,7 @@
             {
                 "children": [],
                 "depends_on": null,
-                "help": "GPIO number (IOxx) from which to sample the Rotary Encoder 'A' output.\nSome GPIOs are used for other purposes (flash connections, etc.) and cannot be used.",
+                "help": "GPIO number (IOxx) for timer 2 'B' output.\nSome GPIOs are used for other purposes (flash connections, etc.) and cannot be used.",
                 "id": "MCPWM2B_GPIO",
                 "name": "MCPWM2B_GPIO",
                 "range": [

@@ -2480,86 +2480,86 @@
                 "children": [],
                 "depends_on": null,
                 "help": "GPIO number (IOxx) for timer 0 'A' output.\nSome GPIOs are used for other purposes (flash connections, etc.) and cannot be used.",
-                "id": "MCPWM0A_GPIO",
-                "name": "MCPWM0A_GPIO",
+                "id": "PWM00A_GPIO",
+                "name": "PWM00A_GPIO",
                 "range": [
                     0,
                     39
                 ],
-                "title": "MCPWM0A output GPIO number",
+                "title": "PWM00A output GPIO number",
                 "type": "int"
             },
             {
                 "children": [],
                 "depends_on": null,
                 "help": "GPIO number (IOxx) for timer 0 'B' output.\nSome GPIOs are used for other purposes (flash connections, etc.) and cannot be used.",
-                "id": "MCPWM0B_GPIO",
-                "name": "MCPWM0B_GPIO",
+                "id": "PWM00B_GPIO",
+                "name": "PWM00B_GPIO",
                 "range": [
                     0,
                     39
                 ],
-                "title": "MCPWM0B output GPIO number",
+                "title": "PWM00B output GPIO number",
                 "type": "int"
             },
             {
                 "children": [],
                 "depends_on": null,
                 "help": "GPIO number (IOxx) for timer 1 'A' output.\nSome GPIOs are used for other purposes (flash connections, etc.) and cannot be used.",
-                "id": "MCPWM1A_GPIO",
-                "name": "MCPWM1A_GPIO",
+                "id": "PWM01A_GPIO",
+                "name": "PWM01A_GPIO",
                 "range": [
                     0,
                     39
                 ],
-                "title": "MCPWM1A output GPIO number",
+                "title": "PWM01A output GPIO number",
                 "type": "int"
             },
             {
                 "children": [],
                 "depends_on": null,
                 "help": "GPIO number (IOxx) for timer 1 'B' output.\nSome GPIOs are used for other purposes (flash connections, etc.) and cannot be used.",
-                "id": "MCPWM1B_GPIO",
-                "name": "MCPWM1B_GPIO",
+                "id": "PWM01B_GPIO",
+                "name": "PWM01B_GPIO",
                 "range": [
                     0,
                     39
                 ],
-                "title": "MCPWM1B output GPIO number",
+                "title": "PWM01B output GPIO number",
                 "type": "int"
             },
             {
                 "children": [],
                 "depends_on": null,
                 "help": "GPIO number (IOxx) for timer 2 'A' output.\nSome GPIOs are used for other purposes (flash connections, etc.) and cannot be used.",
-                "id": "MCPWM2A_GPIO",
-                "name": "MCPWM2A_GPIO",
+                "id": "PWM02A_GPIO",
+                "name": "PWM02A_GPIO",
                 "range": [
                     0,
                     39
                 ],
-                "title": "MCPWM2A output GPIO number",
+                "title": "PWM02A output GPIO number",
                 "type": "int"
             },
             {
                 "children": [],
                 "depends_on": null,
                 "help": "GPIO number (IOxx) for timer 2 'B' output.\nSome GPIOs are used for other purposes (flash connections, etc.) and cannot be used.",
-                "id": "MCPWM2B_GPIO",
-                "name": "MCPWM2B_GPIO",
+                "id": "PWM02B_GPIO",
+                "name": "PWM02B_GPIO",
                 "range": [
                     0,
                     39
                 ],
-                "title": "MCPWM2B output GPIO number",
+                "title": "PWM02B output GPIO number",
                 "type": "int"
             },
             {
                 "children": [],
                 "depends_on": null,
                 "help": "Resolution of pwm timer group 0\nMaximum resolution is clk/2 with clk at 240Mhz  \nMinimum resolution is clk/512 with clk at 2400Mz\nBest set to multiples of 2 and used with duty cycles of multiples thise resolution",
-                "id": "MCPWM_UNIT_0_RESOLUTION",
-                "name": "MCPWM_UNIT_0_RESOLUTION",
+                "id": "PWM_U0_RESOLUTION",
+                "name": "PWM_U0_RESOLUTION",
                 "range": [
                     468750,
                     120000000
@@ -2571,8 +2571,8 @@
                 "children": [],
                 "depends_on": null,
                 "help": "Resolution of pwm timer 0 at timer group 0\nMaximum resolution is clk/2 with clk at 240Mhz  \nMinimum resolution is clk/512 with clk at 2400Mz\nBest set to multiples of 2 and used with duty cycles of multiples thise resolution\nTimer resolution should align with its group resolution",
-                "id": "MCPWM0_RESOLUTION",
-                "name": "MCPWM0_RESOLUTION",
+                "id": "PWM00_RESOLUTION",
+                "name": "PWM00_RESOLUTION",
                 "range": [
                     468750,
                     120000000
@@ -2584,8 +2584,8 @@
                 "children": [],
                 "depends_on": null,
                 "help": "Resolution of pwm timer 0 at timer group 0\nMaximum resolution is clk/2 with clk at 240Mhz  \nMinimum resolution is clk/512 with clk at 2400Mz\nBest set to multiples of 2 and used with duty cycles of multiples thise resolution\nTimer resolution should align with its group resolution",
-                "id": "MCPWM1_RESOLUTION",
-                "name": "MCPWM1_RESOLUTION",
+                "id": "PWM01_RESOLUTION",
+                "name": "PWM01_RESOLUTION",
                 "range": [
                     468750,
                     120000000
@@ -2597,8 +2597,8 @@
                 "children": [],
                 "depends_on": null,
                 "help": "Resolution of pwm timer 0 at timer group 0\nMaximum resolution is clk/2 with clk at 240Mhz  \nMinimum resolution is clk/512 with clk at 2400Mz\nBest set to multiples of 2 and used with duty cycles of multiples thise resolution\nTimer resolution should align with its group resolution",
-                "id": "MCPWM2_RESOLUTION",
-                "name": "MCPWM2_RESOLUTION",
+                "id": "PWM02_RESOLUTION",
+                "name": "PWM02_RESOLUTION",
                 "range": [
                     468750,
                     120000000
@@ -2609,277 +2609,683 @@
             {
                 "children": [],
                 "depends_on": null,
-                "help": "Frequency of MCPWM0\nMaximum frequency at maximum resolution is clk/2 with clk at 240Mhz  \nMinimum frequency at minimum resolution is clk/512(8bit prescaler)/65536(16bit timer) with clk at 2400Mz",
-                "id": "MCPWM0_FRQ",
-                "name": "MCPWM0_FRQ",
+                "help": "Frequency of PWM00\nMaximum frequency at maximum resolution is clk/2 with clk at 240Mhz  \nMinimum frequency at minimum resolution is clk/512(8bit prescaler)/65536(16bit timer) with clk at 2400Mz",
+                "id": "PWM00_FRQ",
+                "name": "PWM00_FRQ",
                 "range": [
                     8,
                     120000000
                 ],
-                "title": "Frequency of MCPWM0",
+                "title": "Frequency of PWM00",
                 "type": "int"
             },
             {
                 "children": [],
                 "depends_on": null,
-                "help": "Duty cycle of MCPWM0 comperator A\nUse string representation of float",
-                "id": "MCPWM0_DUTY_A",
-                "name": "MCPWM0_DUTY_A",
+                "help": "Duty cycle of PWM00 comperator A\nUse string representation of float",
+                "id": "PWM00_DUTY_A",
+                "name": "PWM00_DUTY_A",
                 "range": null,
-                "title": "Duty cycle of MCPWM0 comperator A",
+                "title": "Duty cycle of PWM00 comperator A",
                 "type": "string"
             },
             {
                 "children": [],
                 "depends_on": null,
-                "help": "Duty cycle of MCPWM0 comperator B\nUse string representation of float",
-                "id": "MCPWM0_DUTY_B",
-                "name": "MCPWM0_DUTY_B",
+                "help": "Duty cycle of PWM00 comperator B\nUse string representation of float",
+                "id": "PWM00_DUTY_B",
+                "name": "PWM00_DUTY_B",
                 "range": null,
-                "title": "Duty cycle of MCPWM0 comperator B",
+                "title": "Duty cycle of PWM00 comperator B",
                 "type": "string"
             },
             {
                 "children": [],
                 "depends_on": null,
                 "help": "Use string representation of float",
-                "id": "MCPWM0_SYNC_VAL",
-                "name": "MCPWM0_SYNC_VAL",
+                "id": "PWM00_SYNC_VAL",
+                "name": "PWM00_SYNC_VAL",
                 "range": null,
-                "title": "Sync duty of MCPWM0",
+                "title": "Sync duty of PWM00",
                 "type": "string"
             },
             {
                 "children": [],
                 "depends_on": null,
-                "help": "0 = MCPWM_SELECT_NO_INPUT\n1 = MCPWM_SELECT_TIMER0_SYNC\n2 = MCPWM_SELECT_TIMER1_SYNC\n3 = MCPWM_SELECT_TIMER2_SYNC\n4 = MCPWM_SELECT_GPIO_SYNC0\n5 = MCPWM_SELECT_GPIO_SYNC1\n6 = MCPWM_SELECT_GPIO_SYNC2",
-                "id": "MCPWM0_SYNC_SIG",
-                "name": "MCPWM0_SYNC_SIG",
+                "help": "0 = PWM0_SELECT_NO_INPUT\n1 = PWM0_SELECT_TIMER0_SYNC\n2 = PWM0_SELECT_TIMER1_SYNC\n3 = PWM0_SELECT_TIMER2_SYNC\n4 = PWM0_SELECT_GPIO_SYNC0\n5 = PWM0_SELECT_GPIO_SYNC1\n6 = PWM0_SELECT_GPIO_SYNC2",
+                "id": "PWM00_SYNC_SIG",
+                "name": "PWM00_SYNC_SIG",
                 "range": [
                     0,
                     6
                 ],
-                "title": "Synchronisation signal for MCPWM0",
+                "title": "Synchronisation signal for PWM00",
                 "type": "int"
             },
             {
                 "children": [],
                 "depends_on": null,
-                "help": "0 = MCPWM_SWSYNC_SOURCE_SYNCIN (the input sync signal will be routed to its sync output path)\n1 = MCPWM_SWSYNC_SOURCE_TEZ    (sync signal generated when timer counts to zero)\n2 = MCPWM_SWSYNC_SOURCE_TEP    (sync signal generated when timer counts to peak)\n3 = MCPWM_SWSYNC_SOURCE_DISABLED",
-                "id": "MCPWM0_SYNC_OUT",
-                "name": "MCPWM0_SYNC_OUT",
+                "help": "0 = PWM0_SWSYNC_SOURCE_SYNCIN (the input sync signal will be routed to its sync output path)\n1 = PWM0_SWSYNC_SOURCE_TEZ    (sync signal generated when timer counts to zero)\n2 = PWM0_SWSYNC_SOURCE_TEP    (sync signal generated when timer counts to peak)\n3 = PWM0_SWSYNC_SOURCE_DISABLED",
+                "id": "PWM00_SYNC_OUT",
+                "name": "PWM00_SYNC_OUT",
                 "range": [
                     0,
                     3
                 ],
-                "title": "Synchronization output for MCPWM0",
+                "title": "Synchronization output for PWM00",
                 "type": "int"
             },
             {
                 "children": [],
                 "depends_on": null,
-                "help": "0 = MCPWM_UP_COUNTER\n1 = MCPWM_DOWN_COUNTER",
-                "id": "MCPWM0_DIR",
-                "name": "MCPWM0_DIR",
+                "help": "0 = PWM0_UP_COUNTER\n1 = PWM0_DOWN_COUNTER",
+                "id": "PWM00_DIR",
+                "name": "PWM00_DIR",
                 "range": [
                     0,
                     1
                 ],
-                "title": "Timer count direction afer sync signal for MCPWM0",
+                "title": "Timer count direction afer sync signal for PWM00",
                 "type": "int"
             },
             {
                 "children": [],
                 "depends_on": null,
-                "help": "If set to 1 MCPWM0 will be initialized and started during boot",
-                "id": "MCPWM0_AUTOSTART",
-                "name": "MCPWM0_AUTOSTART",
+                "help": "If set to 1 PWM00 will be initialized and started during boot",
+                "id": "PWM00_AUTOSTART",
+                "name": "PWM00_AUTOSTART",
                 "range": null,
-                "title": "Autostart MCPWM0 at boot",
+                "title": "Autostart PWM00 at boot",
                 "type": "bool"
             },
             {
                 "children": [],
                 "depends_on": null,
-                "help": "Frequency of MCPWM1\nMaximum frequency at maximum resolution is clk/2 with clk at 240Mhz  \nMinimum frequency at minimum resolution is clk/512(8bit prescaler)/65536(16bit timer) with clk at 2400Mz",
-                "id": "MCPWM1_FRQ",
-                "name": "MCPWM1_FRQ",
+                "help": "Frequency of PWM01\nMaximum frequency at maximum resolution is clk/2 with clk at 240Mhz  \nMinimum frequency at minimum resolution is clk/512(8bit prescaler)/65536(16bit timer) with clk at 2400Mz",
+                "id": "PWM01_FRQ",
+                "name": "PWM01_FRQ",
                 "range": [
                     8,
                     120000000
                 ],
-                "title": "Frequency of MCPWM1",
+                "title": "Frequency of PWM01",
                 "type": "int"
             },
             {
                 "children": [],
                 "depends_on": null,
-                "help": "Duty cycle of MCPWM1 comperator A\nUse string representation of float",
-                "id": "MCPWM1_DUTY_A",
-                "name": "MCPWM1_DUTY_A",
+                "help": "Duty cycle of PWM01 comperator A\nUse string representation of float",
+                "id": "PWM01_DUTY_A",
+                "name": "PWM01_DUTY_A",
                 "range": null,
-                "title": "Duty cycle of MCPWM1 comperator A",
+                "title": "Duty cycle of PWM01 comperator A",
                 "type": "string"
             },
             {
                 "children": [],
                 "depends_on": null,
-                "help": "Duty cycle of MCPWM1 comperator B\nUse string representation of float",
-                "id": "MCPWM1_DUTY_B",
-                "name": "MCPWM1_DUTY_B",
+                "help": "Duty cycle of PWM01 comperator B\nUse string representation of float",
+                "id": "PWM01_DUTY_B",
+                "name": "PWM01_DUTY_B",
                 "range": null,
-                "title": "Duty cycle of MCPWM1 comperator B",
+                "title": "Duty cycle of PWM01 comperator B",
                 "type": "string"
             },
             {
                 "children": [],
                 "depends_on": null,
                 "help": "Use string representation of float",
-                "id": "MCPWM1_SYNC_VAL",
-                "name": "MCPWM1_SYNC_VAL",
+                "id": "PWM01_SYNC_VAL",
+                "name": "PWM01_SYNC_VAL",
                 "range": null,
-                "title": "Sync duty of MCPWM1",
+                "title": "Sync duty of PWM01",
                 "type": "string"
             },
             {
                 "children": [],
                 "depends_on": null,
-                "help": "0 = MCPWM_SELECT_NO_INPUT\n1 = MCPWM_SELECT_TIMER0_SYNC\n2 = MCPWM_SELECT_TIMER1_SYNC\n3 = MCPWM_SELECT_TIMER2_SYNC\n4 = MCPWM_SELECT_GPIO_SYNC0\n5 = MCPWM_SELECT_GPIO_SYNC1\n6 = MCPWM_SELECT_GPIO_SYNC2",
-                "id": "MCPWM1_SYNC_SIG",
-                "name": "MCPWM1_SYNC_SIG",
+                "help": "0 = PWM0_SELECT_NO_INPUT\n1 = PWM0_SELECT_TIMER0_SYNC\n2 = PWM0_SELECT_TIMER1_SYNC\n3 = PWM0_SELECT_TIMER2_SYNC\n4 = PWM0_SELECT_GPIO_SYNC0\n5 = PWM0_SELECT_GPIO_SYNC1\n6 = PWM0_SELECT_GPIO_SYNC2",
+                "id": "PWM01_SYNC_SIG",
+                "name": "PWM01_SYNC_SIG",
                 "range": [
                     0,
                     6
                 ],
-                "title": "Synchronisation signal for MCPWM1",
+                "title": "Synchronisation signal for PWM01",
                 "type": "int"
             },
             {
                 "children": [],
                 "depends_on": null,
-                "help": "0 = MCPWM_SWSYNC_SOURCE_SYNCIN (the input sync signal will be routed to its sync output path)\n1 = MCPWM_SWSYNC_SOURCE_TEZ    (sync signal generated when timer counts to zero)\n2 = MCPWM_SWSYNC_SOURCE_TEP    (sync signal generated when timer counts to peak)\n3 = MCPWM_SWSYNC_SOURCE_DISABLED",
-                "id": "MCPWM1_SYNC_OUT",
-                "name": "MCPWM1_SYNC_OUT",
+                "help": "0 = PWM0_SWSYNC_SOURCE_SYNCIN (the input sync signal will be routed to its sync output path)\n1 = PWM0_SWSYNC_SOURCE_TEZ    (sync signal generated when timer counts to zero)\n2 = PWM0_SWSYNC_SOURCE_TEP    (sync signal generated when timer counts to peak)\n3 = PWM0_SWSYNC_SOURCE_DISABLED",
+                "id": "PWM01_SYNC_OUT",
+                "name": "PWM01_SYNC_OUT",
                 "range": [
                     0,
                     3
                 ],
-                "title": "Synchronization output for MCPWM1",
+                "title": "Synchronization output for PWM01",
                 "type": "int"
             },
             {
                 "children": [],
                 "depends_on": null,
-                "help": "0 = MCPWM_UP_COUNTER\n1 = MCPWM_DOWN_COUNTER",
-                "id": "MCPWM1_DIR",
-                "name": "MCPWM1_DIR",
+                "help": "0 = PWM0_UP_COUNTER\n1 = PWM0_DOWN_COUNTER",
+                "id": "PWM01_DIR",
+                "name": "PWM01_DIR",
                 "range": [
                     0,
                     1
                 ],
-                "title": "Timer count direction afer sync signal for MCPWM1",
+                "title": "Timer count direction afer sync signal for PWM01",
                 "type": "int"
             },
             {
                 "children": [],
                 "depends_on": null,
-                "help": "If set to 1 MCPWM1 will be initialized and started during boot",
-                "id": "MCPWM1_AUTOSTART",
-                "name": "MCPWM1_AUTOSTART",
+                "help": "If set to 1 PWM01 will be initialized and started during boot",
+                "id": "PWM01_AUTOSTART",
+                "name": "PWM01_AUTOSTART",
                 "range": null,
-                "title": "Autostart MCPWM1 at boot",
+                "title": "Autostart PWM01 at boot",
                 "type": "bool"
             },
             {
                 "children": [],
                 "depends_on": null,
-                "help": "Frequency of MCPWM2\nMaximum frequency at maximum resolution is clk/2 with clk at 240Mhz  \nMinimum frequency at minimum resolution is clk/512(8bit prescaler)/65536(16bit timer) with clk at 2400Mz",
-                "id": "MCPWM2_FRQ",
-                "name": "MCPWM2_FRQ",
+                "help": "Frequency of PWM02\nMaximum frequency at maximum resolution is clk/2 with clk at 240Mhz  \nMinimum frequency at minimum resolution is clk/512(8bit prescaler)/65536(16bit timer) with clk at 2400Mz",
+                "id": "PWM02_FRQ",
+                "name": "PWM02_FRQ",
                 "range": [
                     8,
                     120000000
                 ],
-                "title": "Frequency of MCPWM2",
+                "title": "Frequency of PWM02",
                 "type": "int"
             },
             {
                 "children": [],
                 "depends_on": null,
-                "help": "Duty cycle of MCPWM2 comperator A\nUse string representation of float",
-                "id": "MCPWM2_DUTY_A",
-                "name": "MCPWM2_DUTY_A",
+                "help": "Duty cycle of PWM02 comperator A\nUse string representation of float",
+                "id": "PWM02_DUTY_A",
+                "name": "PWM02_DUTY_A",
                 "range": null,
-                "title": "Duty cycle of MCPWM2 comperator A",
+                "title": "Duty cycle of PWM02 comperator A",
                 "type": "string"
             },
             {
                 "children": [],
                 "depends_on": null,
-                "help": "Duty cycle of MCPWM2 comperator B\nUse string representation of float",
-                "id": "MCPWM2_DUTY_B",
-                "name": "MCPWM2_DUTY_B",
+                "help": "Duty cycle of PWM02 comperator B\nUse string representation of float",
+                "id": "PWM02_DUTY_B",
+                "name": "PWM02_DUTY_B",
                 "range": null,
-                "title": "Duty cycle of MCPWM2 comperator B",
+                "title": "Duty cycle of PWM02 comperator B",
                 "type": "string"
             },
             {
                 "children": [],
                 "depends_on": null,
                 "help": "Use string representation of float",
-                "id": "MCPWM2_SYNC_VAL",
-                "name": "MCPWM2_SYNC_VAL",
+                "id": "PWM02_SYNC_VAL",
+                "name": "PWM02_SYNC_VAL",
                 "range": null,
-                "title": "Sync duty of MCPWM2",
+                "title": "Sync duty of PWM02",
                 "type": "string"
             },
             {
                 "children": [],
                 "depends_on": null,
-                "help": "0 = MCPWM_SELECT_NO_INPUT\n1 = MCPWM_SELECT_TIMER0_SYNC\n2 = MCPWM_SELECT_TIMER1_SYNC\n3 = MCPWM_SELECT_TIMER2_SYNC\n4 = MCPWM_SELECT_GPIO_SYNC0\n5 = MCPWM_SELECT_GPIO_SYNC1\n6 = MCPWM_SELECT_GPIO_SYNC2",
-                "id": "MCPWM2_SYNC_SIG",
-                "name": "MCPWM2_SYNC_SIG",
+                "help": "0 = PWM0_SELECT_NO_INPUT\n1 = PWM0_SELECT_TIMER0_SYNC\n2 = PWM0_SELECT_TIMER1_SYNC\n3 = PWM0_SELECT_TIMER2_SYNC\n4 = PWM0_SELECT_GPIO_SYNC0\n5 = PWM0_SELECT_GPIO_SYNC1\n6 = PWM0_SELECT_GPIO_SYNC2",
+                "id": "PWM02_SYNC_SIG",
+                "name": "PWM02_SYNC_SIG",
                 "range": [
                     0,
                     6
                 ],
-                "title": "Synchronisation signal for MCPWM2",
+                "title": "Synchronisation signal for PWM02",
                 "type": "int"
             },
             {
                 "children": [],
                 "depends_on": null,
-                "help": "0 = MCPWM_SWSYNC_SOURCE_SYNCIN (the input sync signal will be routed to its sync output path)\n1 = MCPWM_SWSYNC_SOURCE_TEZ    (sync signal generated when timer counts to zero)\n2 = MCPWM_SWSYNC_SOURCE_TEP    (sync signal generated when timer counts to peak)\n3 = MCPWM_SWSYNC_SOURCE_DISABLED",
-                "id": "MCPWM2_SYNC_OUT",
-                "name": "MCPWM2_SYNC_OUT",
+                "help": "0 = PWM0_SWSYNC_SOURCE_SYNCIN (the input sync signal will be routed to its sync output path)\n1 = PWM0_SWSYNC_SOURCE_TEZ    (sync signal generated when timer counts to zero)\n2 = PWM0_SWSYNC_SOURCE_TEP    (sync signal generated when timer counts to peak)\n3 = PWM0_SWSYNC_SOURCE_DISABLED",
+                "id": "PWM02_SYNC_OUT",
+                "name": "PWM02_SYNC_OUT",
                 "range": [
                     0,
                     3
                 ],
-                "title": "Synchronization output for MCPWM2",
+                "title": "Synchronization output for PWM02",
                 "type": "int"
             },
             {
                 "children": [],
                 "depends_on": null,
-                "help": "0 = MCPWM_UP_COUNTER\n1 = MCPWM_DOWN_COUNTER",
-                "id": "MCPWM2_DIR",
-                "name": "MCPWM2_DIR",
+                "help": "0 = PWM0_UP_COUNTER\n1 = PWM0_DOWN_COUNTER",
+                "id": "PWM02_DIR",
+                "name": "PWM02_DIR",
                 "range": [
                     0,
                     1
                 ],
-                "title": "Timer count direction afer sync signal for MCPWM2",
+                "title": "Timer count direction afer sync signal for PWM02",
                 "type": "int"
             },
             {
                 "children": [],
                 "depends_on": null,
-                "help": "If set to 1 MCPWM2 will be initialized and started during boot",
-                "id": "MCPWM2_AUTOSTART",
-                "name": "MCPWM2_AUTOSTART",
+                "help": "If set to 1 PWM02 will be initialized and started during boot",
+                "id": "PWM02_AUTOSTART",
+                "name": "PWM02_AUTOSTART",
                 "range": null,
-                "title": "Autostart MCPWM2 at boot",
+                "title": "Autostart PWM02 at boot",
+                "type": "bool"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "GPIO number (IOxx) for timer 0 'A' output.\nSome GPIOs are used for other purposes (flash connections, etc.) and cannot be used.",
+                "id": "PWM10A_GPIO",
+                "name": "PWM10A_GPIO",
+                "range": [
+                    0,
+                    39
+                ],
+                "title": "PWM10A output GPIO number",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "GPIO number (IOxx) for timer 0 'B' output.\nSome GPIOs are used for other purposes (flash connections, etc.) and cannot be used.",
+                "id": "PWM10B_GPIO",
+                "name": "PWM10B_GPIO",
+                "range": [
+                    0,
+                    39
+                ],
+                "title": "PWM10B output GPIO number",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "GPIO number (IOxx) for timer 1 'A' output.\nSome GPIOs are used for other purposes (flash connections, etc.) and cannot be used.",
+                "id": "PWM11A_GPIO",
+                "name": "PWM11A_GPIO",
+                "range": [
+                    0,
+                    39
+                ],
+                "title": "PWM11A output GPIO number",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "GPIO number (IOxx) for timer 1 'B' output.\nSome GPIOs are used for other purposes (flash connections, etc.) and cannot be used.",
+                "id": "PWM11B_GPIO",
+                "name": "PWM11B_GPIO",
+                "range": [
+                    0,
+                    39
+                ],
+                "title": "PWM11B output GPIO number",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "GPIO number (IOxx) for timer 2 'A' output.\nSome GPIOs are used for other purposes (flash connections, etc.) and cannot be used.",
+                "id": "PWM12A_GPIO",
+                "name": "PWM12A_GPIO",
+                "range": [
+                    0,
+                    39
+                ],
+                "title": "PWM12A output GPIO number",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "GPIO number (IOxx) for timer 2 'B' output.\nSome GPIOs are used for other purposes (flash connections, etc.) and cannot be used.",
+                "id": "PWM12B_GPIO",
+                "name": "PWM12B_GPIO",
+                "range": [
+                    0,
+                    39
+                ],
+                "title": "PWM12B output GPIO number",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "Resolution of pwm timer group 0\nMaximum resolution is clk/2 with clk at 240Mhz  \nMinimum resolution is clk/512 with clk at 2400Mz\nBest set to multiples of 2 and used with duty cycles of multiples thise resolution",
+                "id": "PWM_U1_RESOLUTION",
+                "name": "PWM_U1_RESOLUTION",
+                "range": [
+                    468750,
+                    120000000
+                ],
+                "title": "Resolution of timer group 1",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "Resolution of pwm timer 0 at timer group 0\nMaximum resolution is clk/2 with clk at 240Mhz  \nMinimum resolution is clk/512 with clk at 2400Mz\nBest set to multiples of 2 and used with duty cycles of multiples thise resolution\nTimer resolution should align with its group resolution",
+                "id": "PWM10_RESOLUTION",
+                "name": "PWM10_RESOLUTION",
+                "range": [
+                    468750,
+                    120000000
+                ],
+                "title": "Resolution of timer 0 in group 0",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "Resolution of pwm timer 0 at timer group 0\nMaximum resolution is clk/2 with clk at 240Mhz  \nMinimum resolution is clk/512 with clk at 2400Mz\nBest set to multiples of 2 and used with duty cycles of multiples thise resolution\nTimer resolution should align with its group resolution",
+                "id": "PWM11_RESOLUTION",
+                "name": "PWM11_RESOLUTION",
+                "range": [
+                    468750,
+                    120000000
+                ],
+                "title": "Resolution of timer 1 in group 0",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "Resolution of pwm timer 0 at timer group 0\nMaximum resolution is clk/2 with clk at 240Mhz  \nMinimum resolution is clk/512 with clk at 2400Mz\nBest set to multiples of 2 and used with duty cycles of multiples thise resolution\nTimer resolution should align with its group resolution",
+                "id": "PWM12_RESOLUTION",
+                "name": "PWM12_RESOLUTION",
+                "range": [
+                    468750,
+                    120000000
+                ],
+                "title": "Resolution of timer 2 in group 0",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "Frequency of PWM10\nMaximum frequency at maximum resolution is clk/2 with clk at 240Mhz  \nMinimum frequency at minimum resolution is clk/512(8bit prescaler)/65536(16bit timer) with clk at 2400Mz",
+                "id": "PWM10_FRQ",
+                "name": "PWM10_FRQ",
+                "range": [
+                    8,
+                    120000000
+                ],
+                "title": "Frequency of PWM10",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "Duty cycle of PWM10 comperator A\nUse string representation of float",
+                "id": "PWM10_DUTY_A",
+                "name": "PWM10_DUTY_A",
+                "range": null,
+                "title": "Duty cycle of PWM10 comperator A",
+                "type": "string"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "Duty cycle of PWM10 comperator B\nUse string representation of float",
+                "id": "PWM10_DUTY_B",
+                "name": "PWM10_DUTY_B",
+                "range": null,
+                "title": "Duty cycle of PWM10 comperator B",
+                "type": "string"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "Use string representation of float",
+                "id": "PWM10_SYNC_VAL",
+                "name": "PWM10_SYNC_VAL",
+                "range": null,
+                "title": "Sync duty of PWM10",
+                "type": "string"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "0 = PWM1_SELECT_NO_INPUT\n1 = PWM1_SELECT_TIMER0_SYNC\n2 = PWM1_SELECT_TIMER1_SYNC\n3 = PWM1_SELECT_TIMER2_SYNC\n4 = PWM1_SELECT_GPIO_SYNC0\n5 = PWM1_SELECT_GPIO_SYNC1\n6 = PWM1_SELECT_GPIO_SYNC2",
+                "id": "PWM10_SYNC_SIG",
+                "name": "PWM10_SYNC_SIG",
+                "range": [
+                    0,
+                    6
+                ],
+                "title": "Synchronisation signal for PWM10",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "0 = PWM1_SWSYNC_SOURCE_SYNCIN (the input sync signal will be routed to its sync output path)\n1 = PWM1_SWSYNC_SOURCE_TEZ    (sync signal generated when timer counts to zero)\n2 = PWM1_SWSYNC_SOURCE_TEP    (sync signal generated when timer counts to peak)\n3 = PWM1_SWSYNC_SOURCE_DISABLED",
+                "id": "PWM10_SYNC_OUT",
+                "name": "PWM10_SYNC_OUT",
+                "range": [
+                    0,
+                    3
+                ],
+                "title": "Synchronization output for PWM10",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "0 = PWM1_UP_COUNTER\n1 = PWM1_DOWN_COUNTER",
+                "id": "PWM10_DIR",
+                "name": "PWM10_DIR",
+                "range": [
+                    0,
+                    1
+                ],
+                "title": "Timer count direction afer sync signal for PWM10",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "If set to 1 PWM10 will be initialized and started during boot",
+                "id": "PWM10_AUTOSTART",
+                "name": "PWM10_AUTOSTART",
+                "range": null,
+                "title": "Autostart PWM10 at boot",
+                "type": "bool"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "Frequency of PWM11\nMaximum frequency at maximum resolution is clk/2 with clk at 240Mhz  \nMinimum frequency at minimum resolution is clk/512(8bit prescaler)/65536(16bit timer) with clk at 2400Mz",
+                "id": "PWM11_FRQ",
+                "name": "PWM11_FRQ",
+                "range": [
+                    8,
+                    120000000
+                ],
+                "title": "Frequency of PWM11",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "Duty cycle of PWM11 comperator A\nUse string representation of float",
+                "id": "PWM11_DUTY_A",
+                "name": "PWM11_DUTY_A",
+                "range": null,
+                "title": "Duty cycle of PWM11 comperator A",
+                "type": "string"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "Duty cycle of PWM11 comperator B\nUse string representation of float",
+                "id": "PWM11_DUTY_B",
+                "name": "PWM11_DUTY_B",
+                "range": null,
+                "title": "Duty cycle of PWM11 comperator B",
+                "type": "string"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "Use string representation of float",
+                "id": "PWM11_SYNC_VAL",
+                "name": "PWM11_SYNC_VAL",
+                "range": null,
+                "title": "Sync duty of PWM11",
+                "type": "string"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "0 = PWM1_SELECT_NO_INPUT\n1 = PWM1_SELECT_TIMER0_SYNC\n2 = PWM1_SELECT_TIMER1_SYNC\n3 = PWM1_SELECT_TIMER2_SYNC\n4 = PWM1_SELECT_GPIO_SYNC0\n5 = PWM1_SELECT_GPIO_SYNC1\n6 = PWM1_SELECT_GPIO_SYNC2",
+                "id": "PWM11_SYNC_SIG",
+                "name": "PWM11_SYNC_SIG",
+                "range": [
+                    0,
+                    6
+                ],
+                "title": "Synchronisation signal for PWM11",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "0 = PWM1_SWSYNC_SOURCE_SYNCIN (the input sync signal will be routed to its sync output path)\n1 = PWM1_SWSYNC_SOURCE_TEZ    (sync signal generated when timer counts to zero)\n2 = PWM1_SWSYNC_SOURCE_TEP    (sync signal generated when timer counts to peak)\n3 = PWM1_SWSYNC_SOURCE_DISABLED",
+                "id": "PWM11_SYNC_OUT",
+                "name": "PWM11_SYNC_OUT",
+                "range": [
+                    0,
+                    3
+                ],
+                "title": "Synchronization output for PWM11",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "0 = PWM1_UP_COUNTER\n1 = PWM1_DOWN_COUNTER",
+                "id": "PWM11_DIR",
+                "name": "PWM11_DIR",
+                "range": [
+                    0,
+                    1
+                ],
+                "title": "Timer count direction afer sync signal for PWM11",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "If set to 1 PWM11 will be initialized and started during boot",
+                "id": "PWM11_AUTOSTART",
+                "name": "PWM11_AUTOSTART",
+                "range": null,
+                "title": "Autostart PWM11 at boot",
+                "type": "bool"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "Frequency of PWM12\nMaximum frequency at maximum resolution is clk/2 with clk at 240Mhz  \nMinimum frequency at minimum resolution is clk/512(8bit prescaler)/65536(16bit timer) with clk at 2400Mz",
+                "id": "PWM12_FRQ",
+                "name": "PWM12_FRQ",
+                "range": [
+                    8,
+                    120000000
+                ],
+                "title": "Frequency of PWM12",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "Duty cycle of PWM12 comperator A\nUse string representation of float",
+                "id": "PWM12_DUTY_A",
+                "name": "PWM12_DUTY_A",
+                "range": null,
+                "title": "Duty cycle of PWM12 comperator A",
+                "type": "string"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "Duty cycle of PWM12 comperator B\nUse string representation of float",
+                "id": "PWM12_DUTY_B",
+                "name": "PWM12_DUTY_B",
+                "range": null,
+                "title": "Duty cycle of PWM12 comperator B",
+                "type": "string"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "Use string representation of float",
+                "id": "PWM12_SYNC_VAL",
+                "name": "PWM12_SYNC_VAL",
+                "range": null,
+                "title": "Sync duty of PWM12",
+                "type": "string"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "0 = PWM1_SELECT_NO_INPUT\n1 = PWM1_SELECT_TIMER0_SYNC\n2 = PWM1_SELECT_TIMER1_SYNC\n3 = PWM1_SELECT_TIMER2_SYNC\n4 = PWM1_SELECT_GPIO_SYNC0\n5 = PWM1_SELECT_GPIO_SYNC1\n6 = PWM1_SELECT_GPIO_SYNC2",
+                "id": "PWM12_SYNC_SIG",
+                "name": "PWM12_SYNC_SIG",
+                "range": [
+                    0,
+                    6
+                ],
+                "title": "Synchronisation signal for PWM12",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "0 = PWM1_SWSYNC_SOURCE_SYNCIN (the input sync signal will be routed to its sync output path)\n1 = PWM1_SWSYNC_SOURCE_TEZ    (sync signal generated when timer counts to zero)\n2 = PWM1_SWSYNC_SOURCE_TEP    (sync signal generated when timer counts to peak)\n3 = PWM1_SWSYNC_SOURCE_DISABLED",
+                "id": "PWM12_SYNC_OUT",
+                "name": "PWM12_SYNC_OUT",
+                "range": [
+                    0,
+                    3
+                ],
+                "title": "Synchronization output for PWM12",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "0 = PWM1_UP_COUNTER\n1 = PWM1_DOWN_COUNTER",
+                "id": "PWM12_DIR",
+                "name": "PWM12_DIR",
+                "range": [
+                    0,
+                    1
+                ],
+                "title": "Timer count direction afer sync signal for PWM12",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "If set to 1 PWM12 will be initialized and started during boot",
+                "id": "PWM12_AUTOSTART",
+                "name": "PWM12_AUTOSTART",
+                "range": null,
+                "title": "Autostart PWM12 at boot",
                 "type": "bool"
             }
         ],
@@ -17172,7 +17578,7 @@
                         "id": "LWIP_TCPIP_TASK_STACK_SIZE",
                         "name": "LWIP_TCPIP_TASK_STACK_SIZE",
                         "range": [
-                            2048,
+                            2560,
                             65536
                         ],
                         "title": "TCP/IP Task Stack Size",

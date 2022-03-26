@@ -58,7 +58,7 @@ esp_err_t pwm_set_resolution(int pwm_timer)
 	// Configure MCPWM_TIMER_0 group resolution
 	esp_err = mcpwm_timer_set_resolution(MCPWM_UNIT_0, pwm_timer, pwm_timer_groups[0].timer[pwm_timer].resolution) ;
 	if (esp_err != ESP_OK) goto Error ;
-	ESP_LOGI(TAG,"MCPWM0 Timer resolution set to %u Hz", pwm_timer_groups[0].timer[pwm_timer].resolution) ;
+	ESP_LOGI(TAG,"PWM00 Timer resolution set to %u Hz", pwm_timer_groups[0].timer[pwm_timer].resolution) ;
 
 	// Check for and handle error
 Error:
@@ -92,12 +92,12 @@ esp_err_t pwm_set_gpio_factory_defaults(int force_flag)
 	ESP_LOGI(TAG, "Store PWM GPIO factory defaults to flash namespace '%s'", CONFIG_NVS_OPTIONS_NAMESPACE);
 
 	// Set GPIO Default options
-	esp_err = nvs_set_u8(nvs, "MCPWM0A_GPIO", CONFIG_MCPWM0A_GPIO ) ;
-	if (!esp_err) esp_err = nvs_set_u8(nvs, "MCPWM0B_GPIO", CONFIG_MCPWM0B_GPIO ) ;
-	if (!esp_err) esp_err = nvs_set_u8(nvs, "MCPWM1A_GPIO", CONFIG_MCPWM1A_GPIO ) ;
-	if (!esp_err) esp_err = nvs_set_u8(nvs, "MCPWM1B_GPIO", CONFIG_MCPWM1B_GPIO ) ;
-	if (!esp_err) esp_err = nvs_set_u8(nvs, "MCPWM2A_GPIO", CONFIG_MCPWM2A_GPIO ) ;
-	if (!esp_err) esp_err = nvs_set_u8(nvs, "MCPWM2B_GPIO", CONFIG_MCPWM2B_GPIO ) ;
+	if (!esp_err) esp_err = nvs_set_u8(nvs, "PWM00A_GPIO", CONFIG_PWM00A_GPIO ) ;
+	if (!esp_err) esp_err = nvs_set_u8(nvs, "PWM00B_GPIO", CONFIG_PWM00B_GPIO ) ;
+	if (!esp_err) esp_err = nvs_set_u8(nvs, "PWM01A_GPIO", CONFIG_PWM01A_GPIO ) ;
+	if (!esp_err) esp_err = nvs_set_u8(nvs, "PWM01B_GPIO", CONFIG_PWM01B_GPIO ) ;
+	if (!esp_err) esp_err = nvs_set_u8(nvs, "PWM02A_GPIO", CONFIG_PWM02A_GPIO ) ;
+	if (!esp_err) esp_err = nvs_set_u8(nvs, "PWM02B_GPIO", CONFIG_PWM02B_GPIO ) ;
 	// Check for and handle error
 	if (esp_err != ESP_OK) goto Error ;
 	ESP_LOGI(TAG, "MCPWM GPIO factory defaults set");
@@ -139,64 +139,64 @@ esp_err_t pwm_set_timer_factory_defaults(int force_flag)
 	ESP_LOGI(TAG, "Store PWM timer factory defaults to flash namespace '%s'", CONFIG_NVS_OPTIONS_NAMESPACE);
 
 	// Set MCPWM_UNIT_0 group resolution options
-	esp_err = nvs_set_u32(nvs, "MCPWM_U0_RES", CONFIG_MCPWM_UNIT_0_RESOLUTION ) ;
+	esp_err = nvs_set_u32(nvs, "PWM_U0_RES", CONFIG_PWM_U0_RESOLUTION ) ;
 	// Check for and handle error
 	if (esp_err != ESP_OK) goto Error ;
 	ESP_LOGI(TAG, "MCPWM Resolution factory defaults stored to flash");
 
-	// Set MCPWM0 timer configuration options
-	#ifdef CONFIG_MCPWM0_AUTOSTART
-		esp_err = nvs_set_u8(nvs, "MCPWM0_AUTO", CONFIG_MCPWM0_AUTOSTART ) ;
+	// Set PWM00 timer configuration options
+	#ifdef CONFIG_PWM00_AUTOSTART
+		esp_err = nvs_set_u8(nvs, "PWM00_AUTO", CONFIG_PWM00_AUTOSTART ) ;
 	#else
-		esp_err = nvs_set_u8(nvs, "MCPWM0_AUTO", 0 ) ;
+		esp_err = nvs_set_u8(nvs, "PWM00_AUTO", 0 ) ;
 	#endif
-	if (!esp_err) esp_err = nvs_set_u32(nvs, "MCPWM0_FRQ",      CONFIG_MCPWM0_FRQ ) ;
-	if (!esp_err) esp_err = nvs_set_str(nvs, "MCPWM0_DUTY_A",   CONFIG_MCPWM0_DUTY_A ) ;
-	if (!esp_err) esp_err = nvs_set_str(nvs, "MCPWM0_DUTY_B",   CONFIG_MCPWM0_DUTY_B ) ;
-	if (!esp_err) esp_err = nvs_set_str(nvs, "MCPWM0_SYNC_VAL", CONFIG_MCPWM0_SYNC_VAL ) ;
-	if (!esp_err) esp_err = nvs_set_u8(nvs,  "MCPWM0_SYNC_SIG", CONFIG_MCPWM0_SYNC_SIG ) ;
-	if (!esp_err) esp_err = nvs_set_u8(nvs,  "MCPWM0_SYNC_OUT", CONFIG_MCPWM0_SYNC_OUT ) ;
-	if (!esp_err) esp_err = nvs_set_u8(nvs,  "MCPWM0_DIR",      CONFIG_MCPWM0_DIR ) ;
-	if (!esp_err) esp_err = nvs_set_u32(nvs, "MCPWM0_RES",      CONFIG_MCPWM0_RESOLUTION ) ;
+	if (!esp_err) esp_err = nvs_set_u32(nvs, "PWM00_FRQ",      CONFIG_PWM00_FRQ ) ;
+	if (!esp_err) esp_err = nvs_set_str(nvs, "PWM00_DUTY_A",   CONFIG_PWM00_DUTY_A ) ;
+	if (!esp_err) esp_err = nvs_set_str(nvs, "PWM00_DUTY_B",   CONFIG_PWM00_DUTY_B ) ;
+	if (!esp_err) esp_err = nvs_set_str(nvs, "PWM00_SYNC_VAL", CONFIG_PWM00_SYNC_VAL ) ;
+	if (!esp_err) esp_err = nvs_set_u8(nvs,  "PWM00_SYNC_SIG", CONFIG_PWM00_SYNC_SIG ) ;
+	if (!esp_err) esp_err = nvs_set_u8(nvs,  "PWM00_SYNC_OUT", CONFIG_PWM00_SYNC_OUT ) ;
+	if (!esp_err) esp_err = nvs_set_u8(nvs,  "PWM00_DIR",      CONFIG_PWM00_DIR ) ;
+	if (!esp_err) esp_err = nvs_set_u32(nvs, "PWM00_RES",      CONFIG_PWM00_RESOLUTION ) ;
 	// Check for and handle error
 	if (esp_err != ESP_OK) goto Error ;
-	ESP_LOGI(TAG, "MCPWM0 factory defaults stored to flash");
+	ESP_LOGI(TAG, "PWM00 factory defaults stored to flash");
 
-	// Set MCPWM1 timer configuration options
-	#ifdef CONFIG_MCPWM1_AUTOSTART
-		esp_err = nvs_set_u8(nvs, "MCPWM1_AUTO", CONFIG_MCPWM1_AUTOSTART ) ;
+	// Set PWM01 timer configuration options
+	#ifdef CONFIG_PWM01_AUTOSTART
+		esp_err = nvs_set_u8(nvs, "PWM01_AUTO", CONFIG_PWM01_AUTOSTART ) ;
 	#else
-		esp_err = nvs_set_u8(nvs, "MCPWM1_AUTO", 0 ) ;
+		esp_err = nvs_set_u8(nvs, "PWM01_AUTO", 0 ) ;
 	#endif
-	if (!esp_err) esp_err = nvs_set_u32(nvs, "MCPWM1_FRQ",      CONFIG_MCPWM1_FRQ ) ;
-	if (!esp_err) esp_err = nvs_set_str(nvs, "MCPWM1_DUTY_A",   CONFIG_MCPWM1_DUTY_A ) ;
-	if (!esp_err) esp_err = nvs_set_str(nvs, "MCPWM1_DUTY_B",   CONFIG_MCPWM1_DUTY_B ) ;
-	if (!esp_err) esp_err = nvs_set_str(nvs, "MCPWM1_SYNC_VAL", CONFIG_MCPWM1_SYNC_VAL ) ;
-	if (!esp_err) esp_err = nvs_set_u8(nvs,  "MCPWM1_SYNC_SIG", CONFIG_MCPWM1_SYNC_SIG ) ;
-	if (!esp_err) esp_err = nvs_set_u8(nvs,  "MCPWM1_SYNC_OUT", CONFIG_MCPWM1_SYNC_OUT ) ;
-	if (!esp_err) esp_err = nvs_set_u8(nvs,  "MCPWM1_DIR",      CONFIG_MCPWM1_DIR ) ;
-	if (!esp_err) esp_err = nvs_set_u32(nvs, "MCPWM1_RES",      CONFIG_MCPWM1_RESOLUTION ) ;
+	if (!esp_err) esp_err = nvs_set_u32(nvs, "PWM01_FRQ",      CONFIG_PWM01_FRQ ) ;
+	if (!esp_err) esp_err = nvs_set_str(nvs, "PWM01_DUTY_A",   CONFIG_PWM01_DUTY_A ) ;
+	if (!esp_err) esp_err = nvs_set_str(nvs, "PWM01_DUTY_B",   CONFIG_PWM01_DUTY_B ) ;
+	if (!esp_err) esp_err = nvs_set_str(nvs, "PWM01_SYNC_VAL", CONFIG_PWM01_SYNC_VAL ) ;
+	if (!esp_err) esp_err = nvs_set_u8(nvs,  "PWM01_SYNC_SIG", CONFIG_PWM01_SYNC_SIG ) ;
+	if (!esp_err) esp_err = nvs_set_u8(nvs,  "PWM01_SYNC_OUT", CONFIG_PWM01_SYNC_OUT ) ;
+	if (!esp_err) esp_err = nvs_set_u8(nvs,  "PWM01_DIR",      CONFIG_PWM01_DIR ) ;
+	if (!esp_err) esp_err = nvs_set_u32(nvs, "PWM01_RES",      CONFIG_PWM01_RESOLUTION ) ;
 	// Check for and handle error
 	if (esp_err != ESP_OK) goto Error ;
-	ESP_LOGI(TAG, "MCPWM1 factory defaults stored to flash");
+	ESP_LOGI(TAG, "PWM01 factory defaults stored to flash");
 
-	// Set MCPWM2 timer configuration options
-	#ifdef CONFIG_MCPWM2_AUTOSTART
-		esp_err = nvs_set_u8(nvs, "MCPWM2_AUTO", CONFIG_MCPWM2_AUTOSTART ) ;
+	// Set PWM02 timer configuration options
+	#ifdef CONFIG_PWM02_AUTOSTART
+		esp_err = nvs_set_u8(nvs, "PWM02_AUTO", CONFIG_PWM02_AUTOSTART ) ;
 	#else
-		esp_err = nvs_set_u8(nvs, "MCPWM2_AUTO", 0 ) ;
+		esp_err = nvs_set_u8(nvs, "PWM02_AUTO", 0 ) ;
 	#endif
-	if (!esp_err) esp_err = nvs_set_u32(nvs, "MCPWM2_FRQ",      CONFIG_MCPWM2_FRQ ) ;
-	if (!esp_err) esp_err = nvs_set_str(nvs, "MCPWM2_DUTY_A",   CONFIG_MCPWM2_DUTY_A ) ;
-	if (!esp_err) esp_err = nvs_set_str(nvs, "MCPWM2_DUTY_B",   CONFIG_MCPWM2_DUTY_B ) ;
-	if (!esp_err) esp_err = nvs_set_str(nvs, "MCPWM2_SYNC_VAL", CONFIG_MCPWM2_SYNC_VAL ) ;
-	if (!esp_err) esp_err = nvs_set_u8(nvs,  "MCPWM2_SYNC_SIG", CONFIG_MCPWM2_SYNC_SIG ) ;
-	if (!esp_err) esp_err = nvs_set_u8(nvs,  "MCPWM2_SYNC_OUT", CONFIG_MCPWM2_SYNC_OUT ) ;
-	if (!esp_err) esp_err = nvs_set_u8(nvs,  "MCPWM2_DIR",      CONFIG_MCPWM2_DIR ) ;
-	if (!esp_err) esp_err = nvs_set_u32(nvs, "MCPWM2_RES",      CONFIG_MCPWM2_RESOLUTION ) ;
+	if (!esp_err) esp_err = nvs_set_u32(nvs, "PWM02_FRQ",      CONFIG_PWM02_FRQ ) ;
+	if (!esp_err) esp_err = nvs_set_str(nvs, "PWM02_DUTY_A",   CONFIG_PWM02_DUTY_A ) ;
+	if (!esp_err) esp_err = nvs_set_str(nvs, "PWM02_DUTY_B",   CONFIG_PWM02_DUTY_B ) ;
+	if (!esp_err) esp_err = nvs_set_str(nvs, "PWM02_SYNC_VAL", CONFIG_PWM02_SYNC_VAL ) ;
+	if (!esp_err) esp_err = nvs_set_u8(nvs,  "PWM02_SYNC_SIG", CONFIG_PWM02_SYNC_SIG ) ;
+	if (!esp_err) esp_err = nvs_set_u8(nvs,  "PWM02_SYNC_OUT", CONFIG_PWM02_SYNC_OUT ) ;
+	if (!esp_err) esp_err = nvs_set_u8(nvs,  "PWM02_DIR",      CONFIG_PWM02_DIR ) ;
+	if (!esp_err) esp_err = nvs_set_u32(nvs, "PWM02_RES",      CONFIG_PWM02_RESOLUTION ) ;
 	// Check for and handle error
 	if (esp_err != ESP_OK) goto Error ;
-	ESP_LOGI(TAG, "MCPWM2 factory defaults stored to flash");
+	ESP_LOGI(TAG, "PWM02 factory defaults stored to flash");
 
 
 	// Set Default Initialization Flag
@@ -227,62 +227,62 @@ static esp_err_t pwm_set_default_timer_configuration(){
 	if (esp_err != ESP_OK) goto Error ;
 
 	// Read PWM UNIT_0 group configuration from flash
-	pwm_timer_groups[0].group_resolution = option_get_u32("MCPWM_U0_RES") ;
-	ESP_LOGI(TAG, "MCPWM_UNIT_0 Resolution=%d", pwm_timer_groups[0].group_resolution);
+	pwm_timer_groups[0].group_resolution = option_get_u32("PWM_U0_RES") ;
+	ESP_LOGI(TAG, "PWM0_UNIT_0 Resolution=%d", pwm_timer_groups[0].group_resolution);
 
 	// Read PWM UNIT_0 timer configuration
 	for(uint8_t pwm_timer=0 ; pwm_timer<MCPWM_TIMER_MAX ; pwm_timer++)
 	{
 		// Read defaults from flash and store them to timer register
-		snprintf(key, NVS_KEY_NAME_MAX_SIZE, "MCPWM%u_FRQ", pwm_timer) ;
+		snprintf(key, NVS_KEY_NAME_MAX_SIZE, "PWM0%u_FRQ", pwm_timer) ;
 		pwm_timer_groups[0].timer[pwm_timer].frq = option_get_u32(key) ;
-		ESP_LOGI(TAG, "MCPWM%d Frequency=%d", pwm_timer, pwm_timer_groups[0].timer[pwm_timer].frq);
+		ESP_LOGI(TAG, "PWM0%d Frequency=%d", pwm_timer, pwm_timer_groups[0].timer[pwm_timer].frq);
 
-		snprintf(key, NVS_KEY_NAME_MAX_SIZE, "MCPWM%u_DUTY_A", pwm_timer) ;
+		snprintf(key, NVS_KEY_NAME_MAX_SIZE, "PWM0%u_DUTY_A", pwm_timer) ;
 		pwm_timer_groups[0].timer[pwm_timer].duty_a = option_get_float(key) ;
-		ESP_LOGI(TAG, "MCPWM%d CMP_A=%.1f", pwm_timer, pwm_timer_groups[0].timer[pwm_timer].duty_a);
+		ESP_LOGI(TAG, "PWM0%d CMP_A=%.1f", pwm_timer, pwm_timer_groups[0].timer[pwm_timer].duty_a);
 
-		snprintf(key, NVS_KEY_NAME_MAX_SIZE, "MCPWM%u_DUTY_B", pwm_timer) ;
+		snprintf(key, NVS_KEY_NAME_MAX_SIZE, "PWM0%u_DUTY_B", pwm_timer) ;
 		pwm_timer_groups[0].timer[pwm_timer].duty_b = option_get_float(key) ;
-		ESP_LOGI(TAG, "MCPWM%d CMP_B=%.1f", pwm_timer, pwm_timer_groups[0].timer[pwm_timer].duty_b);
+		ESP_LOGI(TAG, "PWM0%d CMP_B=%.1f", pwm_timer, pwm_timer_groups[0].timer[pwm_timer].duty_b);
 
-		snprintf(key, NVS_KEY_NAME_MAX_SIZE, "MCPWM%u_SYNC_VAL", pwm_timer) ;
+		snprintf(key, NVS_KEY_NAME_MAX_SIZE, "PWM0%u_SYNC_VAL", pwm_timer) ;
 		pwm_timer_groups[0].timer[pwm_timer].timer_val = option_get_float(key) ;
-		ESP_LOGI(TAG, "MCPWM%d Timer Val=%.1f", pwm_timer, pwm_timer_groups[0].timer[pwm_timer].timer_val);
+		ESP_LOGI(TAG, "PWM0%d Timer Val=%.1f", pwm_timer, pwm_timer_groups[0].timer[pwm_timer].timer_val);
 
-		snprintf(key, NVS_KEY_NAME_MAX_SIZE, "MCPWM%u_SYNC_SIG", pwm_timer) ;
+		snprintf(key, NVS_KEY_NAME_MAX_SIZE, "PWM0%u_SYNC_SIG", pwm_timer) ;
 		pwm_timer_groups[0].timer[pwm_timer].sync_sig = option_get_u8(key) ;
-		ESP_LOGI(TAG, "MCPWM%d Sync Input=%d", pwm_timer, pwm_timer_groups[0].timer[pwm_timer].sync_sig);
+		ESP_LOGI(TAG, "PWM0%d Sync Input=%d", pwm_timer, pwm_timer_groups[0].timer[pwm_timer].sync_sig);
 
-		snprintf(key, NVS_KEY_NAME_MAX_SIZE, "MCPWM%u_SYNC_OUT", pwm_timer) ;
+		snprintf(key, NVS_KEY_NAME_MAX_SIZE, "PWM0%u_SYNC_OUT", pwm_timer) ;
 		pwm_timer_groups[0].timer[pwm_timer].sync_output = option_get_u8(key) ;
-		ESP_LOGI(TAG, "MCPWM%d Sync Output=%d", pwm_timer, pwm_timer_groups[0].timer[pwm_timer].sync_output);
+		ESP_LOGI(TAG, "PWM0%d Sync Output=%d", pwm_timer, pwm_timer_groups[0].timer[pwm_timer].sync_output);
 
-		snprintf(key, NVS_KEY_NAME_MAX_SIZE, "MCPWM%u_DIR", pwm_timer) ;
+		snprintf(key, NVS_KEY_NAME_MAX_SIZE, "PWM0%u_DIR", pwm_timer) ;
 		pwm_timer_groups[0].timer[pwm_timer].count_direction = option_get_u8(key) ;
-		ESP_LOGI(TAG, "MCPWM%d Count Direction=%d", pwm_timer, pwm_timer_groups[0].timer[pwm_timer].count_direction);
+		ESP_LOGI(TAG, "PWM0%d Count Direction=%d", pwm_timer, pwm_timer_groups[0].timer[pwm_timer].count_direction);
 
-		snprintf(key, NVS_KEY_NAME_MAX_SIZE, "MCPWM%u_RES", pwm_timer) ;
+		snprintf(key, NVS_KEY_NAME_MAX_SIZE, "PWM0%u_RES", pwm_timer) ;
 		pwm_timer_groups[0].timer[pwm_timer].resolution = option_get_u32(key) ;
-		ESP_LOGI(TAG, "MCPWM%d Resolution=%d", pwm_timer, pwm_timer_groups[0].timer[pwm_timer].resolution);
+		ESP_LOGI(TAG, "PWM0%d Resolution=%d", pwm_timer, pwm_timer_groups[0].timer[pwm_timer].resolution);
 
 		pwm_timer_groups[0].timer[pwm_timer].is_initialized = false ;
-		ESP_LOGI(TAG, "MCPWM%d is_initialized=%d", pwm_timer, pwm_timer_groups[0].timer[pwm_timer].is_initialized);
+		ESP_LOGI(TAG, "PWM0%d is_initialized=%d", pwm_timer, pwm_timer_groups[0].timer[pwm_timer].is_initialized);
 
 		// Check if timer auto start flag is set
-		snprintf(key, NVS_KEY_NAME_MAX_SIZE, "MCPWM%u_AUTO", pwm_timer) ;
+		snprintf(key, NVS_KEY_NAME_MAX_SIZE, "PWM0%u_AUTO", pwm_timer) ;
 		if(option_get_u8(key)){
 			// Enable start during initial startup
 			pwm_timer_groups[0].timer[pwm_timer].is_stopped = false ;
-			ESP_LOGI(TAG, "MCPWM%d is_stopped=%d (auto start option)", pwm_timer, pwm_timer_groups[0].timer[pwm_timer].is_stopped);
+			ESP_LOGI(TAG, "PWM0%d is_stopped=%d (auto start option)", pwm_timer, pwm_timer_groups[0].timer[pwm_timer].is_stopped);
 		}else
 		{
 			// Disable start during initial startup
 			pwm_timer_groups[0].timer[pwm_timer].is_stopped = true ;
-			ESP_LOGI(TAG, "MCPWM%d is_stopped=%d", pwm_timer, pwm_timer_groups[0].timer[pwm_timer].is_stopped);
+			ESP_LOGI(TAG, "PWM0%d is_stopped=%d", pwm_timer, pwm_timer_groups[0].timer[pwm_timer].is_stopped);
 		}
 
-		ESP_LOGI(TAG, "MCPWM%d Timer configuration set from flash defaults", pwm_timer);
+		ESP_LOGI(TAG, "PWM0%d Timer configuration set from flash defaults", pwm_timer);
 	}
 	// Check for and handle error
 Error:
@@ -310,16 +310,16 @@ static esp_err_t do_pwm_list(int argc, char **argv)
 	for(int pwm_timer=0 ; pwm_timer<MCPWM_TIMER_MAX ; pwm_timer++)
 	{
 		// Log parameters set
-		printf("MCPWM%d Frq=%d\n", pwm_timer, pwm_timer_groups[0].timer[pwm_timer].frq);
-		printf("MCPWM%d CMP_A=%.1f\n", pwm_timer, pwm_timer_groups[0].timer[pwm_timer].duty_a);
-		printf("MCPWM%d CMP_B=%.1f\n", pwm_timer, pwm_timer_groups[0].timer[pwm_timer].duty_b);
-		printf("MCPWM%d Count Direction=%d\n", pwm_timer, pwm_timer_groups[0].timer[pwm_timer].count_direction);
-		printf("MCPWM%d Sync Signal=%d\n", pwm_timer, pwm_timer_groups[0].timer[pwm_timer].sync_sig);
-		printf("MCPWM%d Sync Output=%d\n", pwm_timer, pwm_timer_groups[0].timer[pwm_timer].sync_output);
-		printf("MCPWM%d Sync Timer Value=%.1f\n", pwm_timer, pwm_timer_groups[0].timer[pwm_timer].timer_val);
-		printf("MCPWM%d Resolution=%d\n", pwm_timer, pwm_timer_groups[0].timer[pwm_timer].resolution);
-		printf("MCPWM%d %s\n", pwm_timer, pwm_timer_groups[0].timer[pwm_timer].is_initialized ? "Initialized" : "Not Initialized");
-		printf("MCPWM%d %s\n", pwm_timer, pwm_timer_groups[0].timer[pwm_timer].is_stopped ? "Stopped" : "Running");
+		printf("PWM0%d Frq=%d\n", pwm_timer, pwm_timer_groups[0].timer[pwm_timer].frq);
+		printf("PWM0%d CMP_A=%.1f\n", pwm_timer, pwm_timer_groups[0].timer[pwm_timer].duty_a);
+		printf("PWM0%d CMP_B=%.1f\n", pwm_timer, pwm_timer_groups[0].timer[pwm_timer].duty_b);
+		printf("PWM0%d Count Direction=%d\n", pwm_timer, pwm_timer_groups[0].timer[pwm_timer].count_direction);
+		printf("PWM0%d Sync Signal=%d\n", pwm_timer, pwm_timer_groups[0].timer[pwm_timer].sync_sig);
+		printf("PWM0%d Sync Output=%d\n", pwm_timer, pwm_timer_groups[0].timer[pwm_timer].sync_output);
+		printf("PWM0%d Sync Timer Value=%.1f\n", pwm_timer, pwm_timer_groups[0].timer[pwm_timer].timer_val);
+		printf("PWM0%d Resolution=%d\n", pwm_timer, pwm_timer_groups[0].timer[pwm_timer].resolution);
+		printf("PWM0%d %s\n", pwm_timer, pwm_timer_groups[0].timer[pwm_timer].is_initialized ? "Initialized" : "Not Initialized");
+		printf("PWM0%d %s\n", pwm_timer, pwm_timer_groups[0].timer[pwm_timer].is_stopped ? "Stopped" : "Running");
 	};
 
 	return ESP_OK ;
@@ -373,15 +373,15 @@ static esp_err_t pwm_set_timer_synchronization(int pwm_timer)
     // Set timer timer_val INPUT configuration
 	esp_err = mcpwm_sync_configure(MCPWM_UNIT_0, pwm_timer, &sync_conf);
 	if(esp_err != ESP_OK) goto Error ;
-	ESP_LOGI(TAG, "MCPWM%d Count Direction is %d", pwm_timer, pwm_timer_groups[0].timer[pwm_timer].count_direction);
-	ESP_LOGI(TAG, "MCPWM%d Sync Signal is %d",  pwm_timer, sync_conf.sync_sig);
-	ESP_LOGI(TAG, "MCPWM%d Sync Timer Value=%d", pwm_timer, sync_conf.timer_val);
+	ESP_LOGI(TAG, "PWM0%d Count Direction is %d", pwm_timer, pwm_timer_groups[0].timer[pwm_timer].count_direction);
+	ESP_LOGI(TAG, "PWM0%d Sync Signal is %d",  pwm_timer, sync_conf.sync_sig);
+	ESP_LOGI(TAG, "PWM0%d Sync Timer Value=%d", pwm_timer, sync_conf.timer_val);
 
     // Set timer timer_val OUTPUT configuration to generate timer_val signal when counting to zero
 	esp_err = mcpwm_set_timer_sync_output(MCPWM_UNIT_0, pwm_timer, pwm_timer_groups[0].timer[pwm_timer].sync_output) ;
 
 	if(esp_err != ESP_OK) goto Error ;
-	ESP_LOGI(TAG, "MCPWM%d Sync Output is %d", pwm_timer, pwm_timer_groups[0].timer[pwm_timer].sync_output);
+	ESP_LOGI(TAG, "PWM0%d Sync Output is %d", pwm_timer, pwm_timer_groups[0].timer[pwm_timer].sync_output);
 
 
 	// Check for and handle error
@@ -403,15 +403,15 @@ static esp_err_t pwm_set_timer_frequency(int pwm_timer)
 	// Set timer waveform as specified in timer register
 	esp_err = mcpwm_set_frequency(MCPWM_UNIT_0, pwm_timer, (uint32_t)pwm_timer_groups[0].timer[pwm_timer].frq) ;
 	if(esp_err != ESP_OK) goto Error ;
-	ESP_LOGI(TAG, "MCPWM%d Frequency=%d", pwm_timer, pwm_timer_groups[0].timer[pwm_timer].frq);
+	ESP_LOGI(TAG, "PWM0%d Frequency=%d", pwm_timer, pwm_timer_groups[0].timer[pwm_timer].frq);
 
 	esp_err = mcpwm_set_duty(MCPWM_UNIT_0, pwm_timer, MCPWM0A, pwm_timer_groups[0].timer[pwm_timer].duty_a) ;
 	if(esp_err != ESP_OK) goto Error ;
-	ESP_LOGI(TAG, "MCPWM%d CMP_A=%.1f", pwm_timer, pwm_timer_groups[0].timer[pwm_timer].duty_a);
+	ESP_LOGI(TAG, "PWM0%d CMP_A=%.1f", pwm_timer, pwm_timer_groups[0].timer[pwm_timer].duty_a);
 
 	esp_err = mcpwm_set_duty(MCPWM_UNIT_0, pwm_timer, MCPWM0B, pwm_timer_groups[0].timer[pwm_timer].duty_b) ;
 	if(esp_err != ESP_OK) goto Error ;
-	ESP_LOGI(TAG, "MCPWM%d CMP_B=%.1f", pwm_timer, pwm_timer_groups[0].timer[pwm_timer].duty_a);
+	ESP_LOGI(TAG, "PWM0%d CMP_B=%.1f", pwm_timer, pwm_timer_groups[0].timer[pwm_timer].duty_a);
 
 	// Check for and handle error
 Error:
@@ -623,11 +623,11 @@ static esp_err_t pwm_start_timer(int pwm_timer, int force_flag)
 		// Set pwm pins A to low
 		esp_err = mcpwm_set_signal_low(MCPWM_UNIT_0, pwm_timer, 0 ) ;
 		if(esp_err != ESP_OK) goto Error ;
-		ESP_LOGI(TAG, "MCPWM%d Generator pin A forced to low", pwm_timer);
+		ESP_LOGI(TAG, "PWM0%d Generator pin A forced to low", pwm_timer);
 		// Set pwm pins B to low
 		esp_err = mcpwm_set_signal_low(MCPWM_UNIT_0, pwm_timer, 1 ) ;
 		if(esp_err != ESP_OK) goto Error ;
-		ESP_LOGI(TAG, "MCPWM%d Generator pin B forced to low", pwm_timer);
+		ESP_LOGI(TAG, "PWM0%d Generator pin B forced to low", pwm_timer);
 
 			// Configure MCPWM_UNIT_0 group and timer resolution
 			esp_err = pwm_set_resolution(pwm_timer) ;
@@ -663,7 +663,7 @@ static esp_err_t pwm_start_timer(int pwm_timer, int force_flag)
 
 		// Set initialization flag
 		pwm_timer_groups[0].timer[pwm_timer].is_initialized = true ;
-		ESP_LOGI(TAG, "MCPWM%d Initialized and started", pwm_timer);
+		ESP_LOGI(TAG, "PWM0%d Initialized and started", pwm_timer);
     }
     else
     {
@@ -680,7 +680,7 @@ static esp_err_t pwm_start_timer(int pwm_timer, int force_flag)
 		if(esp_err != ESP_OK) goto Error ;
 
 		// Log result
-		ESP_LOGI(TAG, "MCPWM%d started", pwm_timer);
+		ESP_LOGI(TAG, "PWM0%d started", pwm_timer);
     }
 
 	// Clear 'is_stopped flag' of timer
@@ -779,17 +779,17 @@ static esp_err_t pwm_stop_timer(int pwm_timer)
 		// Set pwm pins A to low
 		esp_err = mcpwm_set_signal_low(MCPWM_UNIT_0, pwm_timer, 0 ) ;
 		if(esp_err != ESP_OK) goto Error ;
-		ESP_LOGI(TAG, "MCPWM%d Generator pin A forced to low", pwm_timer);
+		ESP_LOGI(TAG, "PWM0%d Generator pin A forced to low", pwm_timer);
 		// Set pwm pins B to low
 		esp_err = mcpwm_set_signal_low(MCPWM_UNIT_0, pwm_timer, 1 ) ;
 		if(esp_err != ESP_OK) goto Error ;
-		ESP_LOGI(TAG, "MCPWM%d Generator pin B forced to low", pwm_timer);
+		ESP_LOGI(TAG, "PWM0%d Generator pin B forced to low", pwm_timer);
 		// Stop timer
 		esp_err = mcpwm_stop(MCPWM_UNIT_0, pwm_timer);
 		if(esp_err != ESP_OK) goto Error ;
-		ESP_LOGI(TAG, "MCPWM%d Timer stopped", pwm_timer);
+		ESP_LOGI(TAG, "PWM0%d Timer stopped", pwm_timer);
 	}
-	else ESP_LOGI(TAG, "MCPWM%d Timer stopped (was not initialized yet)", pwm_timer);
+	else ESP_LOGI(TAG, "PWM0%d Timer stopped (was not initialized yet)", pwm_timer);
 
 Error:
 	if (esp_err != ESP_OK) {
@@ -1222,7 +1222,7 @@ static esp_err_t do_pwm_reset(int argc, char **argv)
 		// Configure timer with flash values
 		esp_err = pwm_set_default_timer_configuration() ;
 		if (esp_err != ESP_OK) goto Error ;
-		ESP_LOGI(TAG, "MCPWM%d Timer defaults configured", pwm_timer);
+		ESP_LOGI(TAG, "PWM0%d Timer defaults configured", pwm_timer);
 	}
     ESP_LOGI(TAG,"Timer configuration reset to current boot (flash) defaults");
 
@@ -1283,66 +1283,66 @@ static esp_err_t pwm_save_timer_configuration(int force_flag)
 	if (esp_err != ESP_OK) goto Error ;
 	ESP_LOGI(TAG, "MCPWM UNIT_0 resolution factory defaults stored to flash");
 
-	// Save MCPWMx timer configuration to flash default values
+	// Save PWM0x timer configuration to flash default values
 	// Loop through all three timer
 	for(unsigned short pwm_timer=0 ; pwm_timer<MCPWM_TIMER_MAX ; pwm_timer++)
 	{
 		// Set timer to auto start when force flag is set
 		if(force_flag){
 			// Set actual timer run state as auto start when force flag is set
-			snprintf(key, NVS_KEY_NAME_MAX_SIZE, "MCPWM%u_AUTO", pwm_timer) ;
+			snprintf(key, NVS_KEY_NAME_MAX_SIZE, "PWM0%u_AUTO", pwm_timer) ;
 			esp_err = nvs_set_u8(nvs, key, !pwm_timer_groups[0].timer[pwm_timer].is_stopped ) ;
 			if(esp_err) break  ;
 			ESP_LOGI(TAG, "Key %s set to %d", key, !pwm_timer_groups[0].timer[pwm_timer].is_stopped);
 		}
 		else{
 			// Clear auto start flag for this timer
-			snprintf(key, NVS_KEY_NAME_MAX_SIZE, "MCPWM%u_AUTO", pwm_timer) ;
+			snprintf(key, NVS_KEY_NAME_MAX_SIZE, "PWM0%u_AUTO", pwm_timer) ;
 			esp_err = nvs_set_u8(nvs, key, false ) ;
 			if(esp_err) break  ;
 			ESP_LOGI(TAG, "Key %s set to %d", key, false);
 		}
 
 		// Save signal configuration to flash
-		snprintf(key, NVS_KEY_NAME_MAX_SIZE, "MCPWM%u_FRQ", pwm_timer) ;
+		snprintf(key, NVS_KEY_NAME_MAX_SIZE, "PWM0%u_FRQ", pwm_timer) ;
 		esp_err = nvs_set_u32(nvs, key, pwm_timer_groups[0].timer[pwm_timer].frq ) ;
 		if(esp_err) break  ;
 		ESP_LOGI(TAG, "Key %s set to %d", key, pwm_timer_groups[0].timer[pwm_timer].frq);
 
-		snprintf(key, NVS_KEY_NAME_MAX_SIZE, "MCPWM%u_DUTY_A", pwm_timer) ;
+		snprintf(key, NVS_KEY_NAME_MAX_SIZE, "PWM0%u_DUTY_A", pwm_timer) ;
 		snprintf(float_string_buffer, 10, "%2.1f", pwm_timer_groups[0].timer[pwm_timer].duty_a);
 		esp_err = nvs_set_str(nvs, key, float_string_buffer ) ;
 		if(esp_err) break  ;
 		ESP_LOGI(TAG, "Key %s set to %s", key, float_string_buffer);
 
-		snprintf(key, NVS_KEY_NAME_MAX_SIZE, "MCPWM%u_DUTY_B", pwm_timer) ;
+		snprintf(key, NVS_KEY_NAME_MAX_SIZE, "PWM0%u_DUTY_B", pwm_timer) ;
 		snprintf(float_string_buffer, 10, "%2.1f", pwm_timer_groups[0].timer[pwm_timer].duty_b);
 		esp_err = nvs_set_str(nvs, key, float_string_buffer ) ;
 		if(esp_err) break  ;
 		ESP_LOGI(TAG, "Key %s set to %s", key, float_string_buffer);
 
-		snprintf(key, NVS_KEY_NAME_MAX_SIZE, "MCPWM%u_SYNC_VAL", pwm_timer) ;
+		snprintf(key, NVS_KEY_NAME_MAX_SIZE, "PWM0%u_SYNC_VAL", pwm_timer) ;
 		snprintf(float_string_buffer, 10, "%2.1f", pwm_timer_groups[0].timer[pwm_timer].timer_val);
 		esp_err = nvs_set_str(nvs, key, float_string_buffer ) ;
 		if(esp_err) break  ;
 		ESP_LOGI(TAG, "Key %s set to %s", key, float_string_buffer);
 
-		snprintf(key, NVS_KEY_NAME_MAX_SIZE, "MCPWM%u_SYNC_SIG", pwm_timer) ;
+		snprintf(key, NVS_KEY_NAME_MAX_SIZE, "PWM0%u_SYNC_SIG", pwm_timer) ;
 		esp_err = nvs_set_u8(nvs, key, pwm_timer_groups[0].timer[pwm_timer].sync_sig) ;
 		if(esp_err) break  ;
 		ESP_LOGI(TAG, "Key %s set to %d", key, pwm_timer_groups[0].timer[pwm_timer].sync_sig);
 
-		snprintf(key, NVS_KEY_NAME_MAX_SIZE, "MCPWM%u_SYNC_OUT", pwm_timer) ;
+		snprintf(key, NVS_KEY_NAME_MAX_SIZE, "PWM0%u_SYNC_OUT", pwm_timer) ;
 		esp_err = nvs_set_u8(nvs, key, pwm_timer_groups[0].timer[pwm_timer].sync_output) ;
 		if(esp_err) break  ;
 		ESP_LOGI(TAG, "Key %s set to %d", key, pwm_timer_groups[0].timer[pwm_timer].sync_output);
 
-		snprintf(key, NVS_KEY_NAME_MAX_SIZE, "MCPWM%u_DIR", pwm_timer) ;
+		snprintf(key, NVS_KEY_NAME_MAX_SIZE, "PWM0%u_DIR", pwm_timer) ;
 		esp_err = nvs_set_u8(nvs, key, pwm_timer_groups[0].timer[pwm_timer].count_direction) ;
 		if(esp_err) break  ;
 		ESP_LOGI(TAG, "Key %s set to %d", key, pwm_timer_groups[0].timer[pwm_timer].count_direction);
 
-		snprintf(key, NVS_KEY_NAME_MAX_SIZE, "MCPWM%u_RES", pwm_timer) ;
+		snprintf(key, NVS_KEY_NAME_MAX_SIZE, "PWM0%u_RES", pwm_timer) ;
 		esp_err = nvs_set_u32(nvs, key, pwm_timer_groups[0].timer[pwm_timer].resolution ) ;
 		if(esp_err) break  ;
 		ESP_LOGI(TAG, "Key %s set to %d", key, pwm_timer_groups[0].timer[pwm_timer].resolution);
@@ -1460,11 +1460,11 @@ esp_err_t initialize_pwm(int force_flag)
 		// Set pwm pins A to low
 		esp_err = mcpwm_set_signal_low(MCPWM_UNIT_0, pwm_timer, 0 ) ;
 		if(esp_err != ESP_OK) goto Error ;
-		ESP_LOGI(TAG, "MCPWM%d Generator pin A forced to low", pwm_timer);
+		ESP_LOGI(TAG, "PWM0%d Generator pin A forced to low", pwm_timer);
 		// Set pwm pins B to low
 		esp_err = mcpwm_set_signal_low(MCPWM_UNIT_0, pwm_timer, 1 ) ;
 		if(esp_err != ESP_OK) goto Error ;
-		ESP_LOGI(TAG, "MCPWM%d Generator pin B forced to low", pwm_timer);
+		ESP_LOGI(TAG, "PWM0%d Generator pin B forced to low", pwm_timer);
 	}
 
 	// Bring up pwm timer as configured
@@ -1475,20 +1475,20 @@ esp_err_t initialize_pwm(int force_flag)
 	// Initialize GPIO Pins
 	// Read and log pin configuration from flash
 	ESP_LOGD(TAG, "Pins [%d][%d][%d][%d][%d][%d]", \
-		  option_get_u8("MCPWM0A_GPIO"), \
-		  option_get_u8("MCPWM0B_GPIO"), \
-		  option_get_u8("MCPWM1A_GPIO"), \
-		  option_get_u8("MCPWM1B_GPIO"), \
-		  option_get_u8("MCPWM2A_GPIO"), \
-		  option_get_u8("MCPWM2B_GPIO") \
+		  option_get_u8("PWM00A_GPIO"), \
+		  option_get_u8("PWM00B_GPIO"), \
+		  option_get_u8("PWM01A_GPIO"), \
+		  option_get_u8("PWM01B_GPIO"), \
+		  option_get_u8("PWM02A_GPIO"), \
+		  option_get_u8("PWM02B_GPIO") \
 		  );
 	// Initialize GPIO pin with assignments from flash
-	esp_err =  mcpwm_gpio_init(MCPWM_UNIT_0, MCPWM0A, option_get_u8("MCPWM0A_GPIO")) ;
-	if(!esp_err) esp_err =  mcpwm_gpio_init(MCPWM_UNIT_0, MCPWM0B, option_get_u8("MCPWM0B_GPIO")) ;
-	if(!esp_err) esp_err =  mcpwm_gpio_init(MCPWM_UNIT_0, MCPWM1A, option_get_u8("MCPWM1A_GPIO")) ;
-	if(!esp_err) esp_err =  mcpwm_gpio_init(MCPWM_UNIT_0, MCPWM1B, option_get_u8("MCPWM1B_GPIO")) ;
-	if(!esp_err) esp_err =  mcpwm_gpio_init(MCPWM_UNIT_0, MCPWM2A, option_get_u8("MCPWM2A_GPIO")) ;
-	if(!esp_err) esp_err =  mcpwm_gpio_init(MCPWM_UNIT_0, MCPWM2B, option_get_u8("MCPWM2B_GPIO")) ;
+	if(!esp_err) esp_err =  mcpwm_gpio_init(MCPWM_UNIT_0, MCPWM0A, option_get_u8("PWM00A_GPIO")) ;
+	if(!esp_err) esp_err =  mcpwm_gpio_init(MCPWM_UNIT_0, MCPWM0B, option_get_u8("PWM00B_GPIO")) ;
+	if(!esp_err) esp_err =  mcpwm_gpio_init(MCPWM_UNIT_0, MCPWM1A, option_get_u8("PWM01A_GPIO")) ;
+	if(!esp_err) esp_err =  mcpwm_gpio_init(MCPWM_UNIT_0, MCPWM1B, option_get_u8("PWM01B_GPIO")) ;
+	if(!esp_err) esp_err =  mcpwm_gpio_init(MCPWM_UNIT_0, MCPWM2A, option_get_u8("PWM02A_GPIO")) ;
+	if(!esp_err) esp_err =  mcpwm_gpio_init(MCPWM_UNIT_0, MCPWM2B, option_get_u8("PWM02B_GPIO")) ;
 	// Check for and handle error
 	if (esp_err != ESP_OK) goto Error ;
 	ESP_LOGI(TAG,"GPIO initialization completed");

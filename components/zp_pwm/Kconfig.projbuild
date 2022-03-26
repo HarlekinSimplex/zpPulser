@@ -48,6 +48,31 @@ config PWM02B_GPIO
 		GPIO number (IOxx) for timer 2 'B' output.
 		Some GPIOs are used for other purposes (flash connections, etc.) and cannot be used.
 
+config PWM0S0_GPIO
+    int "PWM0S0 Sync0 Input GPIO number"
+	range 0 39
+	default 32
+	help
+		GPIO number (IOxx) for GPIO Sync0 Input.
+		Some GPIOs are used for other purposes (flash connections, etc.) and cannot be used.
+
+config PWM0S1_GPIO
+    int "PWM0S1 Sync1 Input GPIO number"
+	range 0 39
+	default 33
+	help
+		GPIO number (IOxx) for GPIO Sync1 Input.
+		Some GPIOs are used for other purposes (flash connections, etc.) and cannot be used.
+
+config PWM0S2_GPIO
+    int "PWM0S2 Sync2 Input GPIO number"
+	range 0 39
+	default 34
+	help
+		GPIO number (IOxx) for GPIO Sync2 Input.
+		Some GPIOs are used for other purposes (flash connections, etc.) and cannot be used.
+
+
 config PWM_U0_RESOLUTION
     int "Resolution of timer group 0"
 	range 468750 120000000
@@ -293,20 +318,17 @@ config PWM02_AUTOSTART
 		If set to 1 PWM02 will be initialized and started during boot
 
 
-
-
-
 config PWM10A_GPIO
     int "PWM10A output GPIO number"
 	range 0 39
-	default 19
+	default 13
 	help
 		GPIO number (IOxx) for timer 0 'A' output.
 		Some GPIOs are used for other purposes (flash connections, etc.) and cannot be used.
 
 config PWM10B_GPIO
     int "PWM10B output GPIO number"
-	range 0 39
+	range 0 12
 	default 18
 	help
 		GPIO number (IOxx) for timer 0 'B' output.
@@ -315,14 +337,14 @@ config PWM10B_GPIO
 config PWM11A_GPIO
     int "PWM11A output GPIO number"
 	range 0 39
-	default 17
+	default 27
 	help
 		GPIO number (IOxx) for timer 1 'A' output.
 		Some GPIOs are used for other purposes (flash connections, etc.) and cannot be used.
 
 config PWM11B_GPIO
     int "PWM11B output GPIO number"
-	range 0 39
+	range 0 26
 	default 16
 	help
 		GPIO number (IOxx) for timer 1 'B' output.
@@ -331,7 +353,7 @@ config PWM11B_GPIO
 config PWM12A_GPIO
     int "PWM12A output GPIO number"
 	range 0 39
-	default 15
+	default 4
 	help
 		GPIO number (IOxx) for timer 2 'A' output.
 		Some GPIOs are used for other purposes (flash connections, etc.) and cannot be used.
@@ -339,9 +361,33 @@ config PWM12A_GPIO
 config PWM12B_GPIO
     int "PWM12B output GPIO number"
 	range 0 39
-	default 14
+	default 2
 	help
 		GPIO number (IOxx) for timer 2 'B' output.
+		Some GPIOs are used for other purposes (flash connections, etc.) and cannot be used.
+
+config PWM1S0_GPIO
+    int "PWM1S0 Sync0 Input GPIO number"
+	range 0 39
+	default 35
+	help
+		GPIO number (IOxx) for GPIO Sync0 Input.
+		Some GPIOs are used for other purposes (flash connections, etc.) and cannot be used.
+
+config PWM1S1_GPIO
+    int "PWM1S1 Sync1 Input GPIO number"
+	range 0 39
+	default 36
+	help
+		GPIO number (IOxx) for GPIO Sync1 Input.
+		Some GPIOs are used for other purposes (flash connections, etc.) and cannot be used.
+
+config PWM1S2_GPIO
+    int "PWM1S2 Sync2 Input GPIO number"
+	range 0 39
+	default 39
+	help
+		GPIO number (IOxx) for GPIO Sync2 Input.
 		Some GPIOs are used for other purposes (flash connections, etc.) and cannot be used.
 
 config PWM_U1_RESOLUTION
@@ -587,6 +633,5 @@ config PWM12_AUTOSTART
 	default n
 	help
 		If set to 1 PWM12 will be initialized and started during boot
-
 
 endmenu

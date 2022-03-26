@@ -2557,6 +2557,45 @@
             {
                 "children": [],
                 "depends_on": null,
+                "help": "GPIO number (IOxx) for GPIO Sync0 Input.\nSome GPIOs are used for other purposes (flash connections, etc.) and cannot be used.",
+                "id": "PWM0S0_GPIO",
+                "name": "PWM0S0_GPIO",
+                "range": [
+                    0,
+                    39
+                ],
+                "title": "PWM0S0 Sync0 Input GPIO number",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "GPIO number (IOxx) for GPIO Sync1 Input.\nSome GPIOs are used for other purposes (flash connections, etc.) and cannot be used.",
+                "id": "PWM0S1_GPIO",
+                "name": "PWM0S1_GPIO",
+                "range": [
+                    0,
+                    39
+                ],
+                "title": "PWM0S1 Sync1 Input GPIO number",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "GPIO number (IOxx) for GPIO Sync2 Input.\nSome GPIOs are used for other purposes (flash connections, etc.) and cannot be used.",
+                "id": "PWM0S2_GPIO",
+                "name": "PWM0S2_GPIO",
+                "range": [
+                    0,
+                    39
+                ],
+                "title": "PWM0S2 Sync2 Input GPIO number",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
                 "help": "Resolution of pwm timer group 0\nMaximum resolution is clk/2 with clk at 240Mhz  \nMinimum resolution is clk/512 with clk at 2400Mz\nBest set to multiples of 2 and used with duty cycles of multiples thise resolution",
                 "id": "PWM_U0_RESOLUTION",
                 "name": "PWM_U0_RESOLUTION",
@@ -2903,7 +2942,7 @@
                 "name": "PWM10B_GPIO",
                 "range": [
                     0,
-                    39
+                    12
                 ],
                 "title": "PWM10B output GPIO number",
                 "type": "int"
@@ -2929,7 +2968,7 @@
                 "name": "PWM11B_GPIO",
                 "range": [
                     0,
-                    39
+                    26
                 ],
                 "title": "PWM11B output GPIO number",
                 "type": "int"
@@ -2958,6 +2997,45 @@
                     39
                 ],
                 "title": "PWM12B output GPIO number",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "GPIO number (IOxx) for GPIO Sync0 Input.\nSome GPIOs are used for other purposes (flash connections, etc.) and cannot be used.",
+                "id": "PWM1S0_GPIO",
+                "name": "PWM1S0_GPIO",
+                "range": [
+                    0,
+                    39
+                ],
+                "title": "PWM1S0 Sync0 Input GPIO number",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "GPIO number (IOxx) for GPIO Sync1 Input.\nSome GPIOs are used for other purposes (flash connections, etc.) and cannot be used.",
+                "id": "PWM1S1_GPIO",
+                "name": "PWM1S1_GPIO",
+                "range": [
+                    0,
+                    39
+                ],
+                "title": "PWM1S1 Sync1 Input GPIO number",
+                "type": "int"
+            },
+            {
+                "children": [],
+                "depends_on": null,
+                "help": "GPIO number (IOxx) for GPIO Sync2 Input.\nSome GPIOs are used for other purposes (flash connections, etc.) and cannot be used.",
+                "id": "PWM1S2_GPIO",
+                "name": "PWM1S2_GPIO",
+                "range": [
+                    0,
+                    39
+                ],
+                "title": "PWM1S2 Sync2 Input GPIO number",
                 "type": "int"
             },
             {

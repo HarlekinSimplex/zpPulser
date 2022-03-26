@@ -98,6 +98,9 @@ esp_err_t pwm_set_gpio_factory_defaults(int force_flag)
 	if (!esp_err) esp_err = nvs_set_u8(nvs, "PWM01B_GPIO", CONFIG_PWM01B_GPIO ) ;
 	if (!esp_err) esp_err = nvs_set_u8(nvs, "PWM02A_GPIO", CONFIG_PWM02A_GPIO ) ;
 	if (!esp_err) esp_err = nvs_set_u8(nvs, "PWM02B_GPIO", CONFIG_PWM02B_GPIO ) ;
+	if (!esp_err) esp_err = nvs_set_u8(nvs, "PWM0S0_GPIO", CONFIG_PWM0S0_GPIO ) ;
+	if (!esp_err) esp_err = nvs_set_u8(nvs, "PWM0S1_GPIO", CONFIG_PWM0S1_GPIO ) ;
+	if (!esp_err) esp_err = nvs_set_u8(nvs, "PWM0S2_GPIO", CONFIG_PWM0S2_GPIO ) ;
 
 	// Set GPIO Default options Timer Group 1
 	if (!esp_err) esp_err = nvs_set_u8(nvs, "PWM10A_GPIO", CONFIG_PWM10A_GPIO ) ;
@@ -106,6 +109,9 @@ esp_err_t pwm_set_gpio_factory_defaults(int force_flag)
 	if (!esp_err) esp_err = nvs_set_u8(nvs, "PWM11B_GPIO", CONFIG_PWM11B_GPIO ) ;
 	if (!esp_err) esp_err = nvs_set_u8(nvs, "PWM12A_GPIO", CONFIG_PWM12A_GPIO ) ;
 	if (!esp_err) esp_err = nvs_set_u8(nvs, "PWM12B_GPIO", CONFIG_PWM12B_GPIO ) ;
+	if (!esp_err) esp_err = nvs_set_u8(nvs, "PWM1S0_GPIO", CONFIG_PWM1S0_GPIO ) ;
+	if (!esp_err) esp_err = nvs_set_u8(nvs, "PWM1S1_GPIO", CONFIG_PWM1S1_GPIO ) ;
+	if (!esp_err) esp_err = nvs_set_u8(nvs, "PWM1S2_GPIO", CONFIG_PWM1S2_GPIO ) ;
 
 	// Check for and handle error
 	if (esp_err != ESP_OK) goto Error ;
@@ -1758,13 +1764,16 @@ esp_err_t initialize_pwm(int force_flag)
 
 	// Initialize GPIO Pins Group 0
 	// Read and log pin configuration from flash
-	ESP_LOGD(TAG, "Pins Group 0 [%d][%d][%d][%d][%d][%d]", \
+	ESP_LOGD(TAG, "Pins Timer Group 0 [%d][%d] [%d][%d] [%d][%d] [%d][%d][%d]", \
 		  option_get_u8("PWM00A_GPIO"), \
 		  option_get_u8("PWM00B_GPIO"), \
 		  option_get_u8("PWM01A_GPIO"), \
 		  option_get_u8("PWM01B_GPIO"), \
 		  option_get_u8("PWM02A_GPIO"), \
-		  option_get_u8("PWM02B_GPIO") \
+		  option_get_u8("PWM02B_GPIO"), \
+		  option_get_u8("PWM0S0_GPIO"), \
+		  option_get_u8("PWM0S1_GPIO"), \
+		  option_get_u8("PWM0S2_GPIO") \
 		  );
 	// Initialize GPIO pin with assignments from flash
 	if(!esp_err) esp_err =  mcpwm_gpio_init(MCPWM_UNIT_0, MCPWM0A, option_get_u8("PWM00A_GPIO")) ;
@@ -1773,16 +1782,22 @@ esp_err_t initialize_pwm(int force_flag)
 	if(!esp_err) esp_err =  mcpwm_gpio_init(MCPWM_UNIT_0, MCPWM1B, option_get_u8("PWM01B_GPIO")) ;
 	if(!esp_err) esp_err =  mcpwm_gpio_init(MCPWM_UNIT_0, MCPWM2A, option_get_u8("PWM02A_GPIO")) ;
 	if(!esp_err) esp_err =  mcpwm_gpio_init(MCPWM_UNIT_0, MCPWM2B, option_get_u8("PWM02B_GPIO")) ;
+	if(!esp_err) esp_err =  mcpwm_gpio_init(MCPWM_UNIT_0, MCPWM_SYNC_0, option_get_u8("PWM0S0_GPIO")) ;
+	if(!esp_err) esp_err =  mcpwm_gpio_init(MCPWM_UNIT_0, MCPWM_SYNC_1, option_get_u8("PWM0S1_GPIO")) ;
+	if(!esp_err) esp_err =  mcpwm_gpio_init(MCPWM_UNIT_0, MCPWM_SYNC_2, option_get_u8("PWM0S2_GPIO")) ;
 
 	// Initialize GPIO Pins Group 0
 	// Read and log pin configuration from flash
-	ESP_LOGD(TAG, "Pins Group 1 [%d][%d][%d][%d][%d][%d]", \
+	ESP_LOGD(TAG, "Pins Timer Group 1 [%d][%d] [%d][%d] [%d][%d] [%d][%d][%d]", \
 		  option_get_u8("PWM10A_GPIO"), \
 		  option_get_u8("PWM10B_GPIO"), \
 		  option_get_u8("PWM11A_GPIO"), \
 		  option_get_u8("PWM11B_GPIO"), \
 		  option_get_u8("PWM12A_GPIO"), \
-		  option_get_u8("PWM12B_GPIO") \
+		  option_get_u8("PWM12B_GPIO"), \
+		  option_get_u8("PWM1S0_GPIO"), \
+		  option_get_u8("PWM1S1_GPIO"), \
+		  option_get_u8("PWM1S2_GPIO") \
 		  );
 	// Initialize GPIO pin with assignments from flash
 	if(!esp_err) esp_err =  mcpwm_gpio_init(MCPWM_UNIT_1, MCPWM0A, option_get_u8("PWM10A_GPIO")) ;
@@ -1791,6 +1806,9 @@ esp_err_t initialize_pwm(int force_flag)
 	if(!esp_err) esp_err =  mcpwm_gpio_init(MCPWM_UNIT_1, MCPWM1B, option_get_u8("PWM11B_GPIO")) ;
 	if(!esp_err) esp_err =  mcpwm_gpio_init(MCPWM_UNIT_1, MCPWM2A, option_get_u8("PWM12A_GPIO")) ;
 	if(!esp_err) esp_err =  mcpwm_gpio_init(MCPWM_UNIT_1, MCPWM2B, option_get_u8("PWM12B_GPIO")) ;
+	if(!esp_err) esp_err =  mcpwm_gpio_init(MCPWM_UNIT_1, MCPWM_SYNC_0, option_get_u8("PWM1S0_GPIO")) ;
+	if(!esp_err) esp_err =  mcpwm_gpio_init(MCPWM_UNIT_1, MCPWM_SYNC_1, option_get_u8("PWM1S1_GPIO")) ;
+	if(!esp_err) esp_err =  mcpwm_gpio_init(MCPWM_UNIT_1, MCPWM_SYNC_2, option_get_u8("PWM1S2_GPIO")) ;
 
 	// Force timer pins group 0 down to low
 	for(int pwm_timer=0 ; pwm_timer<MCPWM_TIMER_MAX ; pwm_timer++){

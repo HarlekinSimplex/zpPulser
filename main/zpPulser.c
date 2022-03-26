@@ -8,20 +8,6 @@
 
 #include <stdio.h>
 #include "esp_log.h"
-//#include "freertos/FreeRTOS.h"
-//#include "freertos/task.h"
-//#include <string.h>
-//#include "esp_system.h"
-//#include "esp_err.h"
-//#include "esp_console.h"
-//#include "esp_vfs_dev.h"
-//#include "driver/uart.h"
-//#include "linenoise/linenoise.h"
-//#include "argtable3/argtable3.h"
-//#include "esp_vfs_fat.h"
-//#include "nvs.h"
-//#include "nvs_flash.h"
-
 #include "zp_app.h"
 #include "zp_nvs.h"
 #include "zp_pwm.h"

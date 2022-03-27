@@ -76,7 +76,10 @@ esp_err_t pwm_set_gpio_factory_defaults(int force_flag)
     uint8_t out_value = 0 ;
 
 	// Log Function
-	ESP_LOGI(TAG,"pwm_set_gpio_factory_defaults()") ;
+	if(force_flag)
+		ESP_LOGI(TAG,"pwm_set_gpio_factory_defaults(force_flag=true)") ;
+	else
+		ESP_LOGI(TAG,"pwm_set_gpio_factory_defaults()") ;
 
     // Open nvs for read/write operations
     esp_err = nvs_open(CONFIG_NVS_OPTIONS_NAMESPACE, NVS_READWRITE, &nvs);
@@ -90,6 +93,8 @@ esp_err_t pwm_set_gpio_factory_defaults(int force_flag)
 		goto Exit ;
     }
 	ESP_LOGI(TAG, "Store PWM GPIO factory defaults to flash namespace '%s'", CONFIG_NVS_OPTIONS_NAMESPACE);
+	// Reset error state in case PWM_GPIO_INIT was not found
+	esp_err = ESP_OK ;
 
 	// Set GPIO Default options Timer Group 0
 	if (!esp_err) esp_err = nvs_set_u8(nvs, "PWM00A_GPIO", CONFIG_PWM00A_GPIO ) ;
@@ -152,6 +157,8 @@ esp_err_t pwm_set_timer_factory_defaults(int force_flag)
 		goto Exit ;
     }
 	ESP_LOGI(TAG, "Store PWM timer factory defaults to flash namespace '%s'", CONFIG_NVS_OPTIONS_NAMESPACE);
+	// Reset error state in case PWM_TIMER_INIT was not found
+	esp_err = ESP_OK ;
 
 	// Set timer configuration options Timer Group 0
 	// Set MCPWM_UNIT_0 group resolution options
@@ -569,7 +576,7 @@ static esp_err_t pwm_set_timer_frequency(int pwm_group, int pwm_timer)
 
 	esp_err = mcpwm_set_duty(pwm_group, pwm_timer, MCPWM0B, pwm_timer_groups[pwm_group].timer[pwm_timer].duty_b) ;
 	if(esp_err != ESP_OK) goto Error ;
-	ESP_LOGI(TAG, "PWM%d%d CMP_B=%.1f", pwm_group, pwm_timer, pwm_timer_groups[pwm_group].timer[pwm_timer].duty_a);
+	ESP_LOGI(TAG, "PWM%d%d CMP_B=%.1f", pwm_group, pwm_timer, pwm_timer_groups[pwm_group].timer[pwm_timer].duty_b);
 
 	// Check for and handle error
 Error:
@@ -794,11 +801,11 @@ static esp_err_t pwm_start_timer(int pwm_group, int pwm_timer, int force_flag)
     {
 		// Force pwm gen pin to low and stop timer
 		// Set pwm pins A to low
-		esp_err = mcpwm_set_signal_low(pwm_group, pwm_timer, 0 ) ;
+		esp_err = mcpwm_set_signal_low(pwm_group, pwm_timer, MCPWM_GEN_A ) ;
 		if(esp_err != ESP_OK) goto Error ;
 		ESP_LOGI(TAG, "PWM%d%d Generator pin A forced to low", pwm_group, pwm_timer);
 		// Set pwm pins B to low
-		esp_err = mcpwm_set_signal_low(pwm_group, pwm_timer, 1 ) ;
+		esp_err = mcpwm_set_signal_low(pwm_group, pwm_timer, MCPWM_GEN_B ) ;
 		if(esp_err != ESP_OK) goto Error ;
 		ESP_LOGI(TAG, "PWM%d%d Generator pin B forced to low", pwm_group, pwm_timer);
 
@@ -964,11 +971,11 @@ static esp_err_t pwm_stop_timer(int pwm_group, int pwm_timer)
 
 		// Force pwm gen pin to low and stop timer
 		// Set pwm pins A to low
-		esp_err = mcpwm_set_signal_low(pwm_group, pwm_timer, 0 ) ;
+		esp_err = mcpwm_set_signal_low(pwm_group, pwm_timer, MCPWM_GEN_A ) ;
 		if(esp_err != ESP_OK) goto Error ;
 		ESP_LOGI(TAG, "PWM%d%d Generator pin A forced to low", pwm_group, pwm_timer);
 		// Set pwm pins B to low
-		esp_err = mcpwm_set_signal_low(pwm_group, pwm_timer, 1 ) ;
+		esp_err = mcpwm_set_signal_low(pwm_group, pwm_timer, MCPWM_GEN_B ) ;
 		if(esp_err != ESP_OK) goto Error ;
 		ESP_LOGI(TAG, "PWM%d%d Generator pin B forced to low", pwm_group, pwm_timer);
 		// Stop timer
@@ -1290,7 +1297,7 @@ Error:
 
 static void register_pwm_set_group_resolution(void)
 {
-	pwm_set_group_resolution_args.group = arg_int0("g", NULL, "<0|1>", "Timer Group (default 0)");
+	pwm_set_group_resolution_args.group = arg_int0("g", "group", "<0|1>", "Timer Group (default 0)");
 	pwm_set_group_resolution_args.resolution = arg_dbl0(NULL, NULL, "<Hz>", "Resolution to use (Default 100Mhz)");
 	pwm_set_group_resolution_args.end = arg_end(5);
 
@@ -1518,14 +1525,14 @@ static esp_err_t pwm_save_timer_configuration(int force_flag)
 	// Set MCPWM UNIT_0 resolution options
 	esp_err = nvs_set_u32(nvs, "MCPWM_U0_RES", pwm_timer_groups[0].group_resolution ) ;
 	if (esp_err != ESP_OK) goto Error ;
-	ESP_LOGI(TAG, "MCPWM UNIT_0 resolution factory defaults stored to flash");
+	ESP_LOGI(TAG, "MCPWM UNIT_0 resolution stored to flash");
 
 	// Save PWM0x timer configuration to flash default values
 	// Loop through all three timer
 	for(unsigned short pwm_timer=0 ; pwm_timer<MCPWM_TIMER_MAX ; pwm_timer++)
 	{
 		// Set timer to auto start when force flag is set
-		if(force_flag){
+		if(force_flag && !pwm_timer_groups[0].timer[pwm_timer].is_stopped){
 			// Set actual timer run state as auto start when force flag is set
 			snprintf(key, NVS_KEY_NAME_MAX_SIZE, "PWM0%u_AUTO", pwm_timer) ;
 			esp_err = nvs_set_u8(nvs, key, !pwm_timer_groups[0].timer[pwm_timer].is_stopped ) ;
@@ -1596,7 +1603,7 @@ static esp_err_t pwm_save_timer_configuration(int force_flag)
 	for(unsigned short pwm_timer=0 ; pwm_timer<MCPWM_TIMER_MAX ; pwm_timer++)
 	{
 		// Set timer to auto start when force flag is set
-		if(force_flag){
+		if(force_flag && !pwm_timer_groups[1].timer[pwm_timer].is_stopped){
 			// Set actual timer run state as auto start when force flag is set
 			snprintf(key, NVS_KEY_NAME_MAX_SIZE, "PWM1%u_AUTO", pwm_timer) ;
 			esp_err = nvs_set_u8(nvs, key, !pwm_timer_groups[1].timer[pwm_timer].is_stopped ) ;
@@ -1878,7 +1885,7 @@ static esp_err_t pwm_initial_startup(void)
 		}
 		else{
 		    // Start timer
-			esp_err = pwm_start_timer(1, pwm_timer, false) ;
+			esp_err = pwm_start_timer(0, pwm_timer, false) ;
 			if (esp_err != ESP_OK) {
 				// Log error message
 				ESP_LOGE(TAG, "Unable to start timer '%d' at group 0", pwm_timer);
